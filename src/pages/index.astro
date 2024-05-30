@@ -1,0 +1,305 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <section class="hero">
+      <img
+        src="/banner.png"
+        class="hero-image"
+        width="100%"
+        alt="Herderrock zaterdag 31 augustus 2024"
+      />
+    </section>
+    <section class="in-the-picture padding-top">
+      <h2 class="title title-left">Band in the <strong>PICTURE</strong></h2>
+      <article class="band-highlight padding-x padding-y">
+        <div class="pic">
+          <img src="/hideous.jpeg" alt="band in the picture hideous" />
+        </div>
+        <div class="band-text padding-x">
+          <h3>Hideous</h3>
+          <p>
+            Eén song. Meer had Hideous niet nodig om zich van een podium op Rock
+            Werchter te verzekeren. <br />
+            Ze halen hun inspiratie uit de rauwe maar melodieuze rock van de jaren
+            90 maar de groep is natuurlijk geen groentje: <br />Hideous is een
+            nieuw samengesteld gezin met leden van Ramkot en Rhea, allebei
+            finalisten uit De Nieuwe Lichting.<br /><br />
+            Maar Werchter is Herdersem niet, we zijn misschien met minder, maar memorabel
+            wordt het zeker.
+          </p>
+          <a href="https://www.youtube.com/watch?v=yYFzc1j4gDg" target="_blank"
+            >Bekijk Curse op YouTube</a
+          ><br />
+          <a
+            href="https://open.spotify.com/artist/0vvVC09B2npGGn1h67PcNy?si=knbp_y9jRga2Jk5ox4O0ag"
+            target="_blank">Beluister Hideous op Spotify</a
+          >
+        </div>
+      </article>
+    </section>
+    <section class="about padding-y">
+      <article class="about-left padding-x">
+        <p>Herderrock, een cosy festival sinds 1985</p>
+        <p>
+          Wat startte als een projectje in de tuin van het plaatselijke
+          jeugdhuis, is ondertussen reeds uitgegroeid tot een klassieker in de
+          streek.
+        </p>
+        <p>
+          Elk jaar streven we voor een cosy ervaring voor jong en al iets ouder,
+          met de nadruk op lokaal talent maar ook de belgische rising stars in
+          de rockwereld komen aan bod.
+        </p>
+        <p id="mb">
+          Dit jaar op <strong>31 augustus</strong>, op festivalweide Lambrecht
+          te Herdersem
+        </p>
+        <a
+          class="button"
+          id="tickets"
+          href="https://herderrock.eventsquare.store/"
+          target="_blank">Bestel hier je tickets</a
+        >
+      </article>
+      <article class="about-right">
+        <img src="/movie.webp" loading="lazy" alt="aftermovie" />
+      </article>
+    </section>
+    <section class="bands padding-y">
+      <div class="full">
+        <div class="empty-50"></div>
+        <h2 class="title title-right">
+          Onze volledige <strong>LINE-UP</strong>
+        </h2>
+      </div>
+
+      <div class="full wrap center padding-y">
+        <article class="single-band">
+          <div class="bg-white">
+            <img src="/schaamteloos.png" alt="band schaamteloos" />
+            <h3>Schaamteloos</h3>
+            <h4>16.00 - 17.30</h4>
+          </div>
+        </article>
+        <article class="single-band">
+          <div class="bg-white">
+            <img src="/gasmm.jpeg" alt="band GASMM" />
+            <h3>GASMM</h3>
+            <h4>18.15 - 18.55</h4>
+          </div>
+        </article>
+        <article class="single-band">
+          <div class="bg-white">
+            <img src="/captain-kaiser.jpeg" alt="band Captain Kaiser" />
+            <h3>Captain Kaiser</h3>
+            <h4>19.40 - 20.40</h4>
+          </div>
+        </article>
+        <article class="single-band bigger">
+          <div class="bg-white">
+            <img src="/hideous.jpeg" alt="band Hideous" />
+            <h3>Hideous</h3>
+            <h4>21.45 - 22.30</h4>
+          </div>
+        </article>
+        <article class="single-band bigger">
+          <div class="bg-white">
+            <img src="/vipp.jpeg" alt="band vip" />
+            <h3>The VIP Partyband</h3>
+            <h4>23.30 - 01.00</h4>
+          </div>
+        </article>
+        <article class="single-band">
+          <div class="bg-white">
+            <img src="/zorrofm.png" alt="dj Zorro FM" />
+            <h3>Zorro FM</h3>
+            <h4>23.30 - 01.00</h4>
+          </div>
+        </article>
+        <article class="single-band">
+          <div class="bg-white">
+            <img src="/dibbs.jpeg" alt="band Hideous" />
+            <h3>DIBBS</h3>
+            <h4>23.30 - 01.00</h4>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+  }
+
+  .logo h1 {
+    display: none;
+  }
+
+  .hero {
+    background-color: var(--red);
+  }
+  .hero-image {
+    min-width: 75%;
+    max-height: 1000px;
+    object-fit: contain;
+  }
+
+  .button {
+    padding: 12px 16px;
+    background-color: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .about-left {
+    width: 40%;
+  }
+
+  .about-right {
+    width: 60%;
+    max-height: 100%;
+  }
+
+  .about-right img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #mb {
+    margin-bottom: 64px;
+  }
+
+  .lineup {
+    background-color: var(--primary-gray);
+  }
+
+  .band-highlight {
+
+    background-color: var(--primary-gray);
+    display: flex;
+  }
+
+  .band-highlight .pic {
+    width: 30%;
+  }
+
+  .band-highlight img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+  }
+
+  .band-text h3 {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--red);
+  }
+
+  .band-text a {
+    color: var(--red);
+  }
+
+  .band-text {
+    font-size: 18px;
+  }
+
+  .bands {
+    background-color: var(--red);
+  }
+
+  .full {
+    width: 100%;
+    display: flex;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .single-band {
+    width: calc(33% - 32px);
+    padding: 16px;
+  }
+  .single-band.bigger {
+    width: calc(50% - 32px);
+    padding: 16px;
+  }
+  .single-band img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .single-band h3,
+  .single-band h4 {
+    padding-left: 8px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .band-highlight .pic {
+      width: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .single-band {
+      width: calc(50% - 32px);
+    }
+
+    .single-band.bigger {
+      width: calc(100% - 32px);
+    }
+
+    .band-highlight .pic {
+      width: 100%;
+    }
+
+	.band-highlight {
+		flex-direction: column;
+	}
+
+	.about {
+		width: 100%;
+		display: block;
+	}
+
+	.about-right {
+		width: 100%;
+		margin-top: 32px;
+	}
+
+	.about-left {
+		width: auto;
+		padding-left: 20px;
+	}
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    .single-band {
+      width: calc(100% - 32px);
+    }
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <a href="https://www.herderrock.be" class="logo"><h1>Herderrock</h1></a>
+    </header>
+    <slot />
+    <footer>© Herderrock 1985 - 2024</footer>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --red: #e20613;
+    --white: #fff;
+    --primary-gray: #f3f0ef;
+    --black: #11110e;
+    --bp-tablet: 768px;
+  }
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  html {
+    font-family: Arial, sans-serif;
+    background: ##fff;
+  }
+  body {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+
+  h3 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  .logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+  }
+
+  .logo:hover {
+    background-image: url("/logo-hover.png");
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+  }
+
+  .logo h1 {
+    display: none;
+  }
+  header {
+    background-color: var(--red);
+    display: flex;
+    justify-content: center;
+  }
+
+  strong {
+    font-weight: bolder;
+    color: var(--red);
+  }
+
+  .padding-y {
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .padding-top {
+    padding-top: 3%;
+  }
+  .padding-x {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .title-left {
+    padding: 16px;
+    background-color: var(--red);
+    color: var(--white);
+    text-align: right;
+  }
+
+  .title-left strong {
+    color: var(--white);
+    border: 2px dashed var(--white);
+    padding: 4px 16px;
+  }
+
+  .title-right {
+    padding: 16px;
+    background-color: var(--primary-gray);
+    color: var(--red);
+    text-align: left;
+  }
+
+  .title-right strong {
+    color: var(--red);
+    border: 2px dashed var(--red);
+    padding: 4px 16px;
+  }
+
+  .empty-50 {
+    width: 50%;
+    height: 1px;
+    display: block;
+  }
+
+  section .title {
+    width: 50%;
+    -webkit-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+  }
+
+  section:hover .title {
+    width: 70%;
+    -webkit-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+  }
+  .bg-white {
+    background-color: var(--white);
+  }
+
+  footer {
+    color: var(--white);
+    background-color: var(--black);
+    padding: 16px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 768px) {
+    section .title {
+      width: 80%;
+    }
+    section:hover .title {
+      width: 90%;
+    }
+	.empty-50 {
+		width: 20%;
+	}
+
+	.padding-y {
+		padding-top: 32px;
+		padding-bottom: 32px;
+	}
+  }
+</style>
