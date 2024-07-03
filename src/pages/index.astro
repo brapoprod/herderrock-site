@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
 
-<Layout title="Herderrock, cosy festival sinds 1985. Elk jaar streven we voor een cosy ervaring voor jong en al iets ouder, met de nadruk op lokaal talent maar ook de belgische rising stars in de rockwereld komen aan bod.">
+<Layout
+  title="Herderrock, cosy festival sinds 1985. Elk jaar streven we voor een cosy ervaring voor jong en al iets ouder, met de nadruk op lokaal talent maar ook de belgische rising stars in de rockwereld komen aan bod."
+>
   <main>
     <section class="hero">
       <img
@@ -58,12 +60,20 @@ import Card from "../components/Card.astro";
           Dit jaar op <strong>31 augustus</strong>, op festivalweide Lambrecht
           te Herdersem
         </p>
-        <a
-          class="button"
-          id="tickets"
-          href="https://herderrock.eventsquare.store/"
-          target="_blank">Bestel hier je tickets</a
-        >
+        <div class="cta-buttons">
+          <a
+            class="button"
+            id="tickets"
+            href="https://herderrock.eventsquare.store/"
+            target="_blank">Bestel hier je TICKETS</a
+          >
+          <a
+            class="button"
+            id="tshirt"
+            href="https://forms.gle/qE89soAh5ZMp7Xrw9"
+            target="_blank">Bestel hier je TSHIRT</a
+          >
+        </div>
       </article>
       <article class="about-right">
         <img src="/movie.webp" loading="lazy" alt="aftermovie" />
@@ -156,6 +166,19 @@ import Card from "../components/Card.astro";
     color: var(--white);
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
+  }
+
+  #tshirt {
+    background-color: var(--white);
+    color: var(--red);
+    border: 2px dashed var(--red);
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
   }
 
   .button:hover {
@@ -192,7 +215,6 @@ import Card from "../components/Card.astro";
   }
 
   .band-highlight {
-
     background-color: var(--primary-gray);
     display: flex;
   }
@@ -276,25 +298,27 @@ import Card from "../components/Card.astro";
       width: 100%;
     }
 
-	.band-highlight {
-		flex-direction: column;
-	}
+    .band-highlight {
+      flex-direction: column;
+    }
 
-	.about {
-		width: 100%;
-		display: block;
-	}
+    .about {
+      width: 100%;
+      display: block;
+    }
 
-	.about-right {
-		width: 100%;
-		margin-top: 32px;
-	}
+    .about-right {
+      width: 100%;
+      margin-top: 32px;
+    }
 
-	.about-left {
-		width: auto;
-		padding-left: 20px;
-	}
-
+    .about-left {
+      width: auto;
+      padding-left: 20px;
+    }
+    .cta-buttons {
+      justify-content: center;
+    }
   }
 
   @media only screen and (max-width: 600px) {
