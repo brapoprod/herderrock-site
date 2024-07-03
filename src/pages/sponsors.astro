@@ -1,0 +1,301 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Sponsors | Herderrock">
+  <main>
+    <section class="hero">
+      <img
+        src="/banner-sponsors.png"
+        class="hero-image"
+        width="100%"
+        alt="Herderrock zaterdag 31 augustus 2024"
+      />
+    </section>
+    <section class="in-the-picture padding-top">
+      <h2 class="title title-left">Dank aan onze <strong>SPONSORS</strong></h2>
+      <article class="vip-highlight padding-x padding-y">
+        <a href="https://www.verzekeringenmuylaert.be/" target="_blank"
+          ><img
+            src="/sponsors/vip+/verzekeringen-muylaert.png"
+            alt="sponsor"
+          /></a
+        >
+
+        <a href="https://www.inbraakveilig.be/" target="_blank"
+          ><img src="/sponsors/vip+/inbraakveilig.png" alt="sponsor" /></a
+        >
+        <a href="https://www.groeneryck.be/" target="_blank"
+          ><img src="/sponsors/vip+/groeneryck.png" alt="sponsor" /></a
+        >
+        <a href="https://www.meersmanaccountancy.com/" target="_blank"
+          ><img src="/sponsors/vip+/meersman.png" alt="sponsor" /></a
+        >
+      </article>
+    </section>
+  </main>
+  <section class="vip padding-y padding-x">
+    <a href="https://www.pmgcharge.be/" class="vip-no-plus" target="_blank"
+      ><img src="/sponsors/vip/pmg.png" alt="sponsor" /></a
+    >
+  </section>
+
+  <section class="comfort padding-y padding-x wrap">
+    <img src="/sponsors/comfort/lab9.png" alt="sponsor" />
+    <img class="invert" src="/sponsors/comfort/odt.png" alt="sponsor" />
+    <img src="/sponsors/comfort/primus-w.png" alt="sponsor" />
+    <img src="/sponsors/comfort/rvm.png" alt="sponsor" />
+    <img src="/sponsors/comfort/stad-w.png" alt="sponsor" />
+    <img src="/sponsors/comfort/vanmolle-w.png" alt="sponsor" />
+    <img src="/sponsors/comfort/ddm.JPG" alt="sponsor" />
+    <img src="/sponsors/comfort/jurgen-w.png" alt="sponsor" />
+    <img src="/sponsors/comfort/steven-w.png" alt="sponsor" />
+  </section>
+</Layout>
+
+<style>
+  .invert {
+    filter: invert();
+  }
+  main {
+    width: 100%;
+  }
+
+  .logo h1 {
+    display: none;
+  }
+
+  .hero {
+    background-color: var(--red);
+  }
+  .hero-image {
+    min-width: 75%;
+    max-height: 600px;
+    object-fit: contain;
+  }
+
+  .button {
+    padding: 12px 16px;
+    background-color: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border: 2px dashed var(--red);
+  }
+
+  #tshirt {
+    background-color: var(--white);
+    color: var(--red);
+    border: 2px dashed var(--red);
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .about-left {
+    width: 40%;
+  }
+
+  .about-right {
+    width: 60%;
+    max-height: 100%;
+  }
+
+  .about-right img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #mb {
+    margin-bottom: 64px;
+  }
+
+  .lineup {
+    background-color: var(--primary-gray);
+  }
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+  .vip-highlight {
+    background-color: var(--primary-gray);
+    display: flex;
+    justify-content: center;
+  }
+  .vip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+  }
+
+  .comfort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+    gap: 16px;
+  }
+
+  .comfort img {
+    width: 15%;
+    max-height: 400px;
+    object-fit: contain;
+  }
+  .vip-highlight a {
+    width: 25%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .vip a {
+    width: 20%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .vip img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .vip-highlight img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+  }
+
+  .band-text h3 {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--red);
+  }
+
+  .band-text a {
+    color: var(--red);
+  }
+
+  .band-text {
+    font-size: 18px;
+  }
+
+  .bands {
+    background-color: var(--red);
+  }
+
+  .full {
+    width: 100%;
+    display: flex;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .single-band {
+    width: calc(33% - 32px);
+    padding: 16px;
+  }
+  .single-band.bigger {
+    width: calc(50% - 32px);
+    padding: 16px;
+  }
+  .single-band img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .single-band h3,
+  .single-band h4 {
+    padding-left: 8px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .vip-highlight {
+      flex-wrap: wrap;
+    }
+    .vip-highlight a {
+      width: 50%;
+    }
+
+    .vip a {
+      width: 40%;
+    }
+
+    .comfort img {
+      width: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .single-band {
+      width: calc(50% - 32px);
+    }
+
+    .single-band.bigger {
+      width: calc(100% - 32px);
+    }
+
+    .vip-highlight a {
+      width: 100%;
+    }
+
+    .vip a {
+      width: 80%;
+    }
+
+    .comfort img {
+      width: 45%;
+    }
+
+    .vip-highlight,
+    .vip {
+      flex-direction: column;
+    }
+
+    .about {
+      width: 100%;
+      display: block;
+    }
+
+    .about-right {
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .about-left {
+      width: auto;
+      padding-left: 20px;
+    }
+    .cta-buttons {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .single-band {
+      width: calc(100% - 32px);
+    }
+  }
+</style>

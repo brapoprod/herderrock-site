@@ -19,9 +19,33 @@ const { title } = Astro.props;
   <body>
     <header>
       <a href="https://www.herderrock.be" class="logo"><h1>Herderrock</h1></a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="menu" id="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="/sponsors">Sponsors</a>
+      </div>
     </header>
     <slot />
     <footer>© Herderrock 1985 - 2024</footer>
+    <script>
+      const toggleMenu = () => {
+        const menu = document.getElementById("menu");
+        const hamburger = document.querySelector(".hamburger");
+        if (menu && hamburger) {
+          menu.classList.toggle("active");
+          hamburger.classList.toggle("active");
+        }
+      };
+
+      //@ts-ignore
+      window.toggleMenu = toggleMenu;
+    </script>
   </body>
 </html>
 <style is:global>
@@ -165,6 +189,63 @@ const { title } = Astro.props;
     text-align: center;
   }
 
+  .hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+  .hamburger div {
+    background-color: var(--white);
+    height: 4px;
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+  }
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -7.5px);
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .menu.active {
+    display: flex;
+    opacity: 1;
+  }
+  .menu a {
+    color: var(--red);
+    padding: 16px;
+    text-decoration: none;
+    font-size: 24px;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+  }
+  .menu a:hover {
+    color: #ff6347;
+  }
   @media only screen and (max-width: 768px) {
     section .title {
       width: 90%;
@@ -172,13 +253,13 @@ const { title } = Astro.props;
     section:hover .title {
       width: 90%;
     }
-	.empty-50 {
-		width: 10%;
-	}
+    .empty-50 {
+      width: 10%;
+    }
 
-	.padding-y {
-		padding-top: 32px;
-		padding-bottom: 32px;
-	}
+    .padding-y {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
   }
 </style>
