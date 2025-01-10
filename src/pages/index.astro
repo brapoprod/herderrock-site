@@ -2,14 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout
-  title="Herderrock"
->
+<Layout title="Herderrock">
   <main>
     <section class="hero">
       <img
         src="/crocque25.jpg"
-        class="hero-image"
+        class="hero-image hero-image-m"
+        width="100%"
+        alt="Herderrock zaterdag 31 augustus 2024"
+      />
+      <img
+        src="/crocque25-d.jpg"
+        class="hero-image hero-image-d"
         width="100%"
         alt="Herderrock zaterdag 31 augustus 2024"
       />
@@ -154,9 +158,16 @@ import Layout from "../layouts/Layout.astro";
     background-color: var(--red);
   }
   .hero-image {
-    min-width: 75%;
+    min-width: 100%;
     max-height: 600px;
     object-fit: contain;
+  }
+
+  .hero-image-m {
+    display: none;
+  }
+  .hero-image-d {
+    display: block;
   }
 
   .button {
@@ -282,6 +293,12 @@ import Layout from "../layouts/Layout.astro";
   @media only screen and (max-width: 992px) {
     .band-highlight .pic {
       width: 50%;
+    }
+    .hero-image-m {
+      display: block;
+    }
+    .hero-image-d {
+      display: none;
     }
   }
 
