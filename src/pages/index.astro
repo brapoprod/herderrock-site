@@ -18,6 +18,12 @@ import Layout from "../layouts/Layout.astro";
         alt="Herderrock zaterdag 31 augustus 2024"
       />
     </section>
+    <section class="hero banner margin-top padding-top padding-bottom">
+        <a class="wave" href="https://herderrock.eventsquare.store/" target="_blank">
+          TICKETS WAVE 1 NU BESCHIKBAAR
+        </a
+        >
+    </section>
     <section class="in-the-picture padding-top">
       <h2 class="title title-left">Band in the <strong>PICTURE</strong></h2>
       <article class="band-highlight padding-x padding-y">
@@ -57,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
         </p>
         <p id="mb">
           Dit jaar vieren we onze 40ste editie, en dat doen we met een
-          spectaculaire affiche. Op <strong>6 setptember</strong>, te
+          spectaculaire affiche. Op <strong>6 september</strong>, te
           festivalweide Lambrecht Herdersem
         </p>
         <div class="cta-buttons">
@@ -169,6 +175,15 @@ import Layout from "../layouts/Layout.astro";
     display: block;
   }
 
+  .banner {
+    background-color: var(--red);
+    background-image: url("/smokebg-min.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--red);
+  }
+
   .button {
     padding: 12px 16px;
     background-color: var(--red);
@@ -218,6 +233,29 @@ import Layout from "../layouts/Layout.astro";
 
   #mb {
     margin-bottom: 64px;
+  }
+
+  .wave {
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 16px;
+    font-size: 18px;
+
+
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid var(--white);
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    transition: all 0.3s ease;
+
+  }
+
+  .wave:hover {
+    background-color: var(--white);
+    color: var(--red);
+    transition: all 0.3s ease;
   }
 
   .lineup {
@@ -342,11 +380,17 @@ import Layout from "../layouts/Layout.astro";
     .cta-buttons {
       justify-content: center;
     }
+    .wave {
+      width: 60%;
+    }
   }
 
   @media only screen and (max-width: 600px) {
     .single-band {
       width: calc(100% - 32px);
+    }
+    .wave {
+      width: 70%;
     }
   }
 </style>
