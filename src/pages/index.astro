@@ -4,20 +4,6 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Herderrock">
   <main>
-    <section class="hero">
-      <img
-        src="/hk-afterwork-25.jpg"
-        class="hero-image hero-image-m"
-        width="100%"
-        alt="Herderrock zaterdag 31 augustus 2024"
-      />
-      <img
-        src="/hk-afterwork-25-d.jpg"
-        class="hero-image hero-image-d"
-        width="100%"
-        alt="Herderrock zaterdag 31 augustus 2024"
-      />
-    </section>
     <section class="hero banner margin-top padding-top padding-bottom">
         <a class="wave" href="https://herderrock.eventsquare.store/" target="_blank">
           TICKETS WAVE 2 NU BESCHIKBAAR
@@ -28,7 +14,7 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="title title-left">Band in the <strong>PICTURE</strong></h2>
       <article class="band-highlight padding-x padding-y">
         <div class="pic">
-          <img src="/de-mens.jpg" alt="band in the picture DE MENS" />
+          <img src="/bands/de-mens.jpg" alt="band in the picture DE MENS" />
         </div>
         <div class="band-text padding-x">
           <h3>De Mens</h3>
@@ -96,21 +82,21 @@ import Layout from "../layouts/Layout.astro";
       <div class="full wrap center padding-y">
         <article class="single-band">
           <div class="bg-white">
-            <img src="/tba.jpg" alt="band tba" />
-            <h3>TBA</h3>
+            <img src="/bands/knuckleheads.jpeg" alt="band Knuckleheads" />
+            <h3>Knuckleheads</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
         <article class="single-band">
           <div class="bg-white">
-            <img src="/tba.jpg" alt="band tba" />
-            <h3>TBA</h3>
+            <img src="/bands/timsfavo.jpeg" alt="band Tim's Favourite" />
+            <h3>Tim's Favourite</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
         <article class="single-band">
           <div class="bg-white">
-            <img src="/waxflower.JPG" alt="band Waxflower" />
+            <img src="/bands/waxflower.jpeg" alt="band Waxflower" />
             <h3>WAXFLOWER</h3>
             <h4>TIME TBA</h4>
           </div>
@@ -118,29 +104,29 @@ import Layout from "../layouts/Layout.astro";
 
         <article class="single-band bigger">
           <div class="bg-white">
-            <img src="/tba.jpg" alt="band tba" />
-            <h3>TBA</h3>
+            <img src="/bands/yesnomaybe.jpeg" alt="band YesNoMaybe" />
+            <h3>YesNoMaybe</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
         <article class="single-band bigger">
           <div class="bg-white">
-            <img src="/de-mens.jpg" alt="band de mens" />
+            <img src="/bands/de-mens.jpg" alt="band de mens" />
             <h3>De Mens</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
         <article class="single-band">
           <div class="bg-white">
-            <img src="/tba.jpg" alt="band tba" />
-            <h3>TBA</h3>
+            <img src="/bands/atmid.jpeg" alt="band Atmid" />
+            <h3>ATMID Coverband</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
         <article class="single-band">
           <div class="bg-white">
             <img src="/tba.jpg" alt="band tba" />
-            <h3>TBA</h3>
+            <h3>AFTERPARTY TBA</h3>
             <h4>TIME TBA</h4>
           </div>
         </article>
@@ -156,23 +142,6 @@ import Layout from "../layouts/Layout.astro";
 
   .logo h1 {
     display: none;
-  }
-
-  .hero {
-    background-color: var(--red);
-  }
-  .hero-image {
-    min-width: 100%;
-    max-height: 600px;
-    object-fit: contain;
-    background-color: black;
-  }
-
-  .hero-image-m {
-    display: none;
-  }
-  .hero-image-d {
-    display: block;
   }
 
   .banner {
@@ -314,8 +283,7 @@ import Layout from "../layouts/Layout.astro";
   }
   .single-band img {
     width: 100%;
-    min-height: 150px;
-    max-height: 350px;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -338,22 +306,16 @@ import Layout from "../layouts/Layout.astro";
     .band-highlight .pic {
       width: 100%;
     }
-    .hero-image-m {
-      display: block;
-    }
-    .hero-image-d {
-      display: none;
+
+    .single-band {
+      width: calc(50% - 32px);
     }
   }
 
   @media only screen and (max-width: 768px) {
-    .single-band {
-      width: calc(50% - 32px);
-    }
 
-    .single-band.bigger {
-      width: calc(100% - 32px);
-    }
+
+
 
     .band-highlight .pic {
       width: 100%;
@@ -387,6 +349,10 @@ import Layout from "../layouts/Layout.astro";
 
   @media only screen and (max-width: 600px) {
     .single-band {
+      width: calc(100% - 32px);
+    }
+
+    .single-band.bigger {
       width: calc(100% - 32px);
     }
     .wave {
