@@ -1,60 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import VIPSponsors from "../components/VIPSponsors.astro";
 ---
 
 <Layout title="Sponsors | Herderrock">
   <main>
-    <section class="hero">
-      <img
-        src="/banner-sponsors.png"
-        class="hero-image"
-        width="100%"
-        alt="Herderrock zaterdag 31 augustus 2024"
-      />
-    </section>
-    <section class="in-the-picture padding-top">
-      <h2 class="title title-left">Dank aan onze <strong>SPONSORS</strong></h2>
-      <article class="vip-highlight padding-x padding-y">
-        <a href="https://www.verzekeringenmuylaert.be/" target="_blank"
-          ><img
-            src="/sponsors/vip+/verzekeringen-muylaert.png"
-            alt="sponsor"
-          /></a
-        >
-
-        <a href="https://www.inbraakveilig.be/" target="_blank"
-          ><img src="/sponsors/vip+/inbraakveilig.png" alt="sponsor" /></a
-        >
-        <a href="https://www.groeneryck.be/" target="_blank"
-          ><img src="/sponsors/vip+/groeneryck.png" alt="sponsor" /></a
-        >
-        <a href="https://www.meersmanaccountancy.com/" target="_blank"
-          ><img src="/sponsors/vip+/meersman.png" alt="sponsor" /></a
-        >
-      </article>
-    </section>
+    <VIPSponsors title="Dank aan onze SPONSORS" />
   </main>
+  <!-- when vip is back
   <section class="vip padding-y padding-x">
     <a href="https://www.pmgcharge.be/" class="vip-no-plus" target="_blank"
       ><img src="/sponsors/vip/pmg.png" alt="sponsor" /></a
     >
   </section>
-
+  -->
   <section class="comfort padding-y padding-x wrap">
-    <img src="/sponsors/comfort/lab9.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/comfort/pmg.png" alt="sponsor" />
     <img class="invert" src="/sponsors/comfort/odt.png" alt="sponsor" />
     <img src="/sponsors/comfort/primus-w.png" alt="sponsor" />
     <img src="/sponsors/comfort/rvm.png" alt="sponsor" />
     <img src="/sponsors/comfort/stad-w.png" alt="sponsor" />
     <img src="/sponsors/comfort/vanmolle-w.png" alt="sponsor" />
     <img src="/sponsors/comfort/ddm.JPG" alt="sponsor" />
+    <img src="/sponsors/comfort/brainpowerproductions.png" alt="sponsor" />
+    <img src="/sponsors/comfort/bruckershof.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/comfort/Lieven-DC.jpg" alt="sponsor" />
     <img src="/sponsors/comfort/jurgen-w.png" alt="sponsor" />
+    <img src="/sponsors/comfort/debiek.jpg" alt="sponsor" />
     <img src="/sponsors/comfort/steven-w.png" alt="sponsor" />
     <img src="/sponsors/comfort/jvl.png" alt="sponsor" />
   </section>
 </Layout>
 
 <style>
+  .black-and-white {
+    filter: grayscale(100%);
+  }
   .invert {
     filter: invert();
   }
@@ -65,16 +46,6 @@ import Layout from "../layouts/Layout.astro";
   .logo h1 {
     display: none;
   }
-
-  .hero {
-    background-color: var(--red);
-  }
-  .hero-image {
-    min-width: 75%;
-    max-height: 600px;
-    object-fit: contain;
-  }
-
   .button {
     padding: 12px 16px;
     background-color: var(--red);
@@ -133,11 +104,6 @@ import Layout from "../layouts/Layout.astro";
     flex-basis: 100%;
     height: 0;
   }
-  .vip-highlight {
-    background-color: var(--primary-gray);
-    display: flex;
-    justify-content: center;
-  }
   .vip {
     display: flex;
     justify-content: center;
@@ -158,11 +124,6 @@ import Layout from "../layouts/Layout.astro";
     max-height: 400px;
     object-fit: contain;
   }
-  .vip-highlight a {
-    width: 25%;
-    justify-content: center;
-    align-content: center;
-  }
 
   .vip a {
     width: 20%;
@@ -173,12 +134,6 @@ import Layout from "../layouts/Layout.astro";
   .vip img {
     width: 100%;
     max-height: 400px;
-    object-fit: contain;
-  }
-
-  .vip-highlight img {
-    width: 100%;
-    max-height: 600px;
     object-fit: contain;
   }
 
@@ -233,13 +188,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media only screen and (max-width: 992px) {
-    .vip-highlight {
-      flex-wrap: wrap;
-    }
-    .vip-highlight a {
-      width: 50%;
-    }
-
     .vip a {
       width: 40%;
     }
@@ -258,10 +206,6 @@ import Layout from "../layouts/Layout.astro";
       width: calc(100% - 32px);
     }
 
-    .vip-highlight a {
-      width: 100%;
-    }
-
     .vip a {
       width: 80%;
     }
@@ -270,7 +214,6 @@ import Layout from "../layouts/Layout.astro";
       width: 45%;
     }
 
-    .vip-highlight,
     .vip {
       flex-direction: column;
     }

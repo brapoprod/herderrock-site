@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  showTitle?: boolean;
+}
+
+const { title = "Dank aan onze SPONSORS", showTitle = true } = Astro.props;
+---
+
+<section class="in-the-picture padding-top">
+  {showTitle && <h2 class="title title-left">{title}</h2>}
+  <article class="vip-highlight padding-x padding-y">
+    <a href="https://www.verzekeringenmuylaert.be/" target="_blank"
+      ><img
+        src="/sponsors/vip+/verzekeringen-muylaert.png"
+        alt="sponsor"
+      /></a
+    >
+
+    <a href="https://www.inbraakveilig.be/" target="_blank"
+      ><img src="/sponsors/vip+/inbraakveilig.png" alt="sponsor" /></a
+    >
+    <a href="https://www.groeneryck.be/" target="_blank"
+      ><img src="/sponsors/vip+/groeneryck.png" alt="sponsor" /></a
+    >
+    <a href="https://www.meersmanaccountancy.com/" target="_blank"
+      ><img src="/sponsors/vip+/meersman.png" alt="sponsor" /></a
+    >
+  </article>
+</section>
+
+<style>
+  .vip-highlight {
+    background-color: var(--primary-gray);
+    display: flex;
+    justify-content: center;
+  }
+
+  .vip-highlight a {
+    width: 25%;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .vip-highlight img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .vip-highlight {
+      flex-wrap: wrap;
+    }
+    .vip-highlight a {
+      width: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .vip-highlight a {
+      width: 100%;
+    }
+    .vip-highlight {
+      flex-direction: column;
+    }
+  }
+</style> 

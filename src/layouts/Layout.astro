@@ -31,6 +31,20 @@ const { title } = Astro.props;
         <a href="/sponsors">Sponsors</a>
       </div>
     </header>
+    <section class="hero">
+      <img
+        src="/hk-afterwork-25.jpg"
+        class="hero-image hero-image-m"
+        width="100%"
+        alt="Herderrock zaterdag 31 augustus 2024"
+      />
+      <img
+        src="/hk-afterwork-25-d.jpg"
+        class="hero-image hero-image-d"
+        width="100%"
+        alt="Herderrock zaterdag 31 augustus 2024"
+      />
+    </section>
     <slot />
     <footer>© Herderrock 1985 - 2024</footer>
     <script>
@@ -263,6 +277,23 @@ const { title } = Astro.props;
   .menu a:hover {
     color: #ff6347;
   }
+
+  .hero {
+    background-color: var(--red);
+  }
+  .hero-image {
+    min-width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    background-color: black;
+  }
+
+  .hero-image-m {
+    display: none;
+  }
+  .hero-image-d {
+    display: block;
+  }
   @media only screen and (max-width: 768px) {
     section .title {
       width: 90%;
@@ -277,6 +308,15 @@ const { title } = Astro.props;
     .padding-y {
       padding-top: 32px;
       padding-bottom: 32px;
+    }
+  }
+
+  @media only screen and (max-width: 992) {
+    .hero-image-m {
+      display: block;
+    }
+    .hero-image-d {
+      display: none;
     }
   }
 </style>
