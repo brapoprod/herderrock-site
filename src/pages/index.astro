@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import VIPSponsors from "../components/VIPSponsors.astro";
 ---
 
 <Layout title="Herderrock">
@@ -132,6 +133,7 @@ import Layout from "../layouts/Layout.astro";
         </article>
       </div>
     </section>
+    <VIPSponsors title="Onze VIP SPONSORS" />
   </main>
 </Layout>
 
@@ -209,8 +211,6 @@ import Layout from "../layouts/Layout.astro";
     text-decoration: none;
     padding: 12px 16px;
     font-size: 18px;
-
-
     font-weight: bold;
     text-align: center;
     border: 2px solid var(--white);
@@ -218,7 +218,6 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 auto;
     width: 50%;
     transition: all 0.3s ease;
-
   }
 
   .wave:hover {
@@ -313,10 +312,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media only screen and (max-width: 768px) {
-
-
-
-
     .band-highlight .pic {
       width: 100%;
     }
