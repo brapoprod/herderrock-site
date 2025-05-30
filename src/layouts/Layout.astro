@@ -29,6 +29,7 @@ const { title } = Astro.props;
         <a href="/#about">Over ons</a>
         <a href="/#line-up">Line-up</a>
         <a href="/sponsors">Sponsors</a>
+        <a href="/faq">FAQ</a>
       </div>
     </header>
     <section class="hero">
@@ -44,6 +45,12 @@ const { title } = Astro.props;
         width="100%"
         alt="Herderrock zaterdag 31 augustus 2024"
       />
+    </section>
+    <section class="hero banner margin-top padding-top padding-bottom">
+      <a class="wave" href="https://herderrock.eventsquare.store/" target="_blank">
+        TICKETS WAVE 2 NU BESCHIKBAAR
+      </a
+      >
     </section>
     <slot />
     <footer>© Herderrock 1985 - 2024</footer>
@@ -294,6 +301,36 @@ const { title } = Astro.props;
   .hero-image-d {
     display: block;
   }
+
+  .banner {
+    background-color: var(--red);
+    background-image: url("/bg-hk-25.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--red);
+  }
+
+  .wave {
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid var(--white);
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .wave:hover {
+    background-color: var(--white);
+    color: var(--red);
+    transition: all 0.3s ease;
+  }
+
   @media only screen and (max-width: 768px) {
     section .title {
       width: 90%;
