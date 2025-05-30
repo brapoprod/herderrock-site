@@ -40,7 +40,7 @@ import Layout from "../layouts/Layout.astro";
             veilig kunt parkeren.
           </p>
           <p>
-            Voor auto's is er <strong>geen</strong> parkeergelegenheid op de festivalweide
+            Voor auto's is er GEEN parkeergelegenheid op de festivalweide
             zelf. Bezoekers kunnen parkeren in de omliggende straten. We vragen wel
             om rekening te houden met de buurt: respecteer de rust en laat geen afval
             achter.
@@ -258,6 +258,11 @@ import Layout from "../layouts/Layout.astro";
   .faq-answer.active {
     max-height: 1000px;
     padding: 0 20px 20px;
+  }
+  strong {
+    color: var(--white);
+    font-weight: 800;
+    text-decoration: underline;
   }
 </style>
 
