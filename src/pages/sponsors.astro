@@ -30,6 +30,13 @@ import VIPSponsors from "../components/VIPSponsors.astro";
     <img src="/sponsors/comfort/steven-w.png" alt="sponsor" />
     <img src="/sponsors/comfort/jvl.png" alt="sponsor" />
   </section>
+  <section class="basic padding-y padding-x wrap">
+    <img class="black-and-white" src="/sponsors/basic/flora.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/basic/kristof.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/basic/vds.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/basic/wiezeslager.jpg" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/basic/lingerie.jpg" alt="sponsor" />
+  </section>
 </Layout>
 
 <style>
@@ -119,8 +126,22 @@ import VIPSponsors from "../components/VIPSponsors.astro";
     gap: 16px;
   }
 
+  .basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    gap: 16px;
+  }
+
   .comfort img {
     width: 15%;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .basic img {
+    width: 10%;
     max-height: 400px;
     object-fit: contain;
   }
