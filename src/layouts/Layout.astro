@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  showHero?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, showHero = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,29 +30,28 @@ const { title } = Astro.props;
         <a href="/#about">Over ons</a>
         <a href="/#line-up">Line-up</a>
         <a href="/sponsors">Sponsors</a>
+        <a href="/affiches">Affiches</a>
         <a href="/faq">FAQ</a>
       </div>
     </header>
-    <section class="hero">
-      <img
-        src="/banner.jpg"
-        class="hero-image hero-image-m"
-        width="100%"
-        alt="Herderrock zaterdag 31 augustus 2024"
-      />
-      <img
-        src="/banner-d.jpg"
-        class="hero-image hero-image-d"
-        width="100%"
-        alt="Herderrock zaterdag 31 augustus 2024"
-      />
-    </section>
-    <section class="hero banner margin-top padding-top padding-bottom">
-      <a class="wave" href="https://herderrock.eventsquare.store/" target="_blank">
-        HELEMAAL UITVERKOCHT
-      </a
-      >
-    </section>
+
+    {showHero && (
+      <section class="hero">
+        <img
+          src="/banner.jpg"
+          class="hero-image hero-image-m"
+          width="100%"
+          alt="Herderrock zaterdag 31 augustus 2024"
+        />
+        <img
+          src="/banner-d.jpg"
+          class="hero-image hero-image-d"
+          width="100%"
+          alt="Herderrock zaterdag 31 augustus 2024"
+        />
+      </section>
+    )}
+
     <slot />
     <footer>© Herderrock 1985 - 2024</footer>
     <script>
@@ -69,6 +69,7 @@ const { title } = Astro.props;
     </script>
   </body>
 </html>
+
 <style is:global>
   :root {
     --red: #e20613;
@@ -194,7 +195,6 @@ const { title } = Astro.props;
     color: var(--white);
     border: 2px dashed var(--white);
     padding: 4px 16px;
-
   }
 
   .empty-50 {
@@ -232,7 +232,7 @@ const { title } = Astro.props;
     width: 30px;
     height: 25px;
     justify-content: space-between;
-    position:fixed;
+    position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1001;

@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const affichePaths = [
+  "/affiches/2007_winter_final.jpg",
+  "/affiches/2008_winter.jpg",
+  "/affiches/2012.png",
+  "/affiches/2013.jpg",
+  "/affiches/2014.JPG",
+  "/affiches/2015.jpg",
+  "/affiches/2016.jpg",
+  "/affiches/2017.jpg",
+  "/affiches/2018.jpg",
+  "/affiches/2019.png",
+  "/affiches/2021.png",
+  "/affiches/2022.png",
+  "/affiches/2023.png",
+  "/affiches/2024.png",
+  "/affiches/2025.png",
+];
+
+const affiches = affichePaths
+  .map((src, idx) => {
+    const yearMatch = src.match(/(19|20)\d{2}/);
+    const year = yearMatch ? Number(yearMatch[0]) : null;
+    const ext = src.split(".").pop()?.toLowerCase();
+    return { src, year, ext, idx };
+  })
+  .sort((a, b) => {
+    const ay = a.year ?? -1;
+    const by = b.year ?? -1;
+    if (by !== ay) return by - ay;
+    return a.idx - b.idx;
+  });
+---
+
+<Layout title="Affiches | Herderrock" showHero={false}>
+  <main class="affiches-main">
+    {affiches.map((a, i) => {
+      const left = i % 2 === 0;
+      const isPdf = a.ext === "pdf";
+      const contentBgClass = left ? "content-white" : "content-red";
+
+      return (
+        <section class="affiche-section padding-top">
+          {left ? (
+          <div class="full">
+            <h2 class="title title-left">
+              Affiche <strong>{a.year ?? ""}</strong>
+            </h2>
+            <div class="empty-50"></div>
+            </div>
+          ) : (
+            <div class="full">
+            <div class="empty-50"></div>
+              <h2 class="title title-right">
+                Affiche <strong>{a.year ?? ""}</strong>
+              </h2>
+            </div>
+          )}
+
+          <article class={`affiche-content ${contentBgClass} padding-x padding-y`}>
+            {isPdf ? (
+              <iframe
+                src={a.src}
+                title={`Herderrock affiche ${a.year ?? ""}`}
+                loading="lazy"
+              />
+            ) : (
+              <img
+                src={a.src}
+                alt={`Herderrock affiche ${a.year ?? ""}`}
+                loading="lazy"
+              />
+            )}
+          </article>
+        </section>
+      );
+    })}
+  </main>
+</Layout>
+
+<style>
+  .affiches-main {
+    width: 100%;
+    background: var(--white);
+  }
+
+  .affiche-section {
+    background: var(--white);
+  }
+
+  /* right title aligned like index */
+  .full {
+    width: 100%;
+    display: flex;
+  }
+
+  /* IMPORTANT:
+     cap the titles so they NEVER go past the middle */
+.affiche-section .title {
+  width: 50%;
+  transition: width 0.2s ease-out;
+}
+
+
+  /* override global hover from Layout */
+.affiche-section:hover .title {
+  width: 70%;
+}
+
+
+  /* poster zone */
+  .affiche-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: clamp(16px, 3vh, 32px);
+  }
+
+  /* full-width alternating background behind posters */
+  .content-white {
+    background: var(--white);
+  }
+  .content-red {
+    background: var(--red);
+  }
+
+  .affiche-content img,
+  .affiche-content iframe {
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: calc(100vh - 220px);
+    object-fit: contain;
+    background: var(--white);
+    border: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    .affiche-section .title,
+    .affiche-section:hover .title {
+      width: 90%;
+      max-width: 90vw; /* on mobile no "middle" concept */
+    }
+
+    .affiche-content img,
+    .affiche-content iframe {
+      max-width: 95vw;
+      max-height: calc(100vh - 200px);
+    }
+  }
+</style>
