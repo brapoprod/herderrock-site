@@ -1,76 +1,90 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 
-const affichePaths = [
-  "/affiches/2007_winter_final.jpg",
-  "/affiches/2008_winter.jpg",
-  "/affiches/2012.png",
-  "/affiches/2013.jpg",
-  "/affiches/2014.JPG",
-  "/affiches/2015.jpg",
-  "/affiches/2016.jpg",
-  "/affiches/2017.jpg",
-  "/affiches/2018.jpg",
-  "/affiches/2019.png",
-  "/affiches/2021.png",
-  "/affiches/2022.png",
-  "/affiches/2023.png",
-  "/affiches/2024.png",
-  "/affiches/2025.png",
-];
+const imageModules = import.meta.glob("../assets/affiches-optimized/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}", {
+  eager: true,
+});
 
-const affiches = affichePaths
-  .map((src, idx) => {
-    const yearMatch = src.match(/(19|20)\d{2}/);
-    const year = yearMatch ? Number(yearMatch[0]) : null;
-    const ext = src.split(".").pop()?.toLowerCase();
-    return { src, year, ext, idx };
-  })
-  .sort((a, b) => {
-    const ay = a.year ?? -1;
-    const by = b.year ?? -1;
-    if (by !== ay) return by - ay;
-    return a.idx - b.idx;
-  });
+
+const pdfModules = import.meta.glob("../assets/affiches-optimized/*.pdf", { eager: true });
+
+const images = Object.entries(imageModules).map(([path, mod], idx) => {
+  const fileName = path.split("/").pop() ?? "";
+  const yearMatch = fileName.match(/(19|20)\d{2}/);
+  const year = yearMatch ? Number(yearMatch[0]) : null;
+  return {
+    type: "image",
+    year,
+    idx,
+    fileName,
+    src: (mod as any).default, // ImageMetadata
+  };
+});
+
+const pdfs = Object.entries(pdfModules).map(([path, mod], idx) => {
+  const fileName = path.split("/").pop() ?? "";
+  const yearMatch = fileName.match(/(19|20)\d{2}/);
+  const year = yearMatch ? Number(yearMatch[0]) : null;
+  return {
+    type: "pdf",
+    year,
+    idx: 10_000 + idx, // keep stable ordering after images
+    fileName,
+    src: (mod as any).default as string, // built URL
+  };
+});
+
+const affiches = [...images, ...pdfs].sort((a, b) => {
+  const ay = a.year ?? -1;
+  const by = b.year ?? -1;
+  if (by !== ay) return by - ay;
+  return a.idx - b.idx;
+});
 ---
 
-<Layout title="Affiches | Herderrock">
+<Layout title="Affiches | Herderrock" showHero={false}>
   <main class="affiches-main">
     {affiches.map((a, i) => {
       const left = i % 2 === 0;
-      const isPdf = a.ext === "pdf";
       const contentBgClass = left ? "content-white" : "content-red";
 
       return (
         <section class="affiche-section padding-top">
-          {left ? (
           <div class="full">
-            <h2 class="title title-left">
-              Affiche <strong>{a.year ?? ""}</strong>
-            </h2>
-            <div class="empty-50"></div>
-            </div>
-          ) : (
-            <div class="full">
-            <div class="empty-50"></div>
-              <h2 class="title title-right">
-                Affiche <strong>{a.year ?? ""}</strong>
-              </h2>
-            </div>
-          )}
+            {left ? (
+              <>
+                <h2 class="title title-left">
+                  Affiche <strong>{a.year ?? ""}</strong>
+                </h2>
+                <div class="empty-50" aria-hidden="true"></div>
+              </>
+            ) : (
+              <>
+                <div class="empty-50" aria-hidden="true"></div>
+                <h2 class="title title-right">
+                  Affiche <strong>{a.year ?? ""}</strong>
+                </h2>
+              </>
+            )}
+          </div>
 
           <article class={`affiche-content ${contentBgClass} padding-x padding-y`}>
-            {isPdf ? (
+            {a.type === "pdf" ? (
               <iframe
                 src={a.src}
                 title={`Herderrock affiche ${a.year ?? ""}`}
                 loading="lazy"
               />
             ) : (
-              <img
+              <Image
                 src={a.src}
                 alt={`Herderrock affiche ${a.year ?? ""}`}
-                loading="lazy"
+                widths={[600, 900, 1200, 1600, 2000]}
+                sizes="(max-width: 768px) 95vw, 90vw"
+                format="webp"
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchpriority={i === 0 ? "high" : "auto"}
               />
             )}
           </article>
@@ -90,27 +104,27 @@ const affiches = affichePaths
     background: var(--white);
   }
 
-  /* right title aligned like index */
   .full {
     width: 100%;
     display: flex;
   }
 
-  /* IMPORTANT:
-     cap the titles so they NEVER go past the middle */
-.affiche-section .title {
-  width: 50%;
-  transition: width 0.2s ease-out;
-}
+  .empty-50 {
+    width: 50%;
+    height: 1px;
+    display: block;
+  }
 
+  /* keep same behavior as global, but scoped */
+  .affiche-section .title {
+    width: 50%;
+    transition: width 0.2s ease-out;
+  }
 
-  /* override global hover from Layout */
-.affiche-section:hover .title {
-  width: 70%;
-}
+  .affiche-section:hover .title {
+    width: 70%;
+  }
 
-
-  /* poster zone */
   .affiche-content {
     display: flex;
     justify-content: center;
@@ -118,21 +132,23 @@ const affiches = affichePaths
     padding-top: clamp(16px, 3vh, 32px);
   }
 
-  /* full-width alternating background behind posters */
   .content-white {
     background: var(--white);
   }
+
   .content-red {
     background: var(--red);
   }
 
-  .affiche-content img,
+  /* Image component outputs an <img>, so this still applies */
+  .affiche-content :global(img),
   .affiche-content iframe {
     width: auto;
     height: auto;
     max-width: 90vw;
     max-height: calc(100vh - 220px);
     object-fit: contain;
+
     background: var(--white);
     border: none;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -143,10 +159,14 @@ const affiches = affichePaths
     .affiche-section .title,
     .affiche-section:hover .title {
       width: 90%;
-      max-width: 90vw; /* on mobile no "middle" concept */
+      max-width: 90vw;
     }
 
-    .affiche-content img,
+    .empty-50 {
+      width: 10%;
+    }
+
+    .affiche-content :global(img),
     .affiche-content iframe {
       max-width: 95vw;
       max-height: calc(100vh - 200px);
