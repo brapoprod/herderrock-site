@@ -50,126 +50,206 @@ const affiches = [...images, ...pdfs].sort((a, b) => {
       const contentBgClass = left ? "content-white" : "content-red";
 
       return (
-        <section class="affiche-section padding-top">
-          <div class="full">
-            {left ? (
-              <>
-                <h2 class="title title-left">
-                  Affiche <strong>{a.year ?? ""}</strong>
-                </h2>
-                <div class="empty-50" aria-hidden="true"></div>
-              </>
-            ) : (
-              <>
-                <div class="empty-50" aria-hidden="true"></div>
-                <h2 class="title title-right">
-                  Affiche <strong>{a.year ?? ""}</strong>
-                </h2>
-              </>
-            )}
-          </div>
+        <section class="affiche-section padding-y">
+  <div class="affiche-shell padding-x">
+    <div class={`affiche-card ${left ? "is-left" : "is-right"}`}>
+      <div class="affiche-meta">
+        <span class="affiche-kicker">Herderrock affiche</span>
+        <h2>{a.year ?? "Onbekend jaar"}</h2>
+      </div>
 
-          <article class={`affiche-content ${contentBgClass} padding-x padding-y`}>
-            {a.type === "pdf" ? (
-              <iframe
-                src={a.src}
-                title={`Herderrock affiche ${a.year ?? ""}`}
-                loading="lazy"
-              />
-            ) : (
-              <Image
-                src={a.src}
-                alt={`Herderrock affiche ${a.year ?? ""}`}
-                widths={[600, 900, 1200, 1600, 2000]}
-                sizes="(max-width: 768px) 95vw, 90vw"
-                format="webp"
-                loading={i === 0 ? "eager" : "lazy"}
-                fetchpriority={i === 0 ? "high" : "auto"}
-              />
-            )}
-          </article>
-        </section>
+      <article class={`affiche-content ${contentBgClass}`}>
+        {a.type === "pdf" ? (
+          <iframe
+            src={a.src}
+            title={`Herderrock affiche ${a.year ?? ""}`}
+            loading="lazy"
+          />
+        ) : (
+          <Image
+            src={a.src}
+            alt={`Herderrock affiche ${a.year ?? ""}`}
+            widths={[600, 900, 1200, 1600, 2000]}
+            sizes="(max-width: 768px) 95vw, 90vw"
+            format="webp"
+            loading={i === 0 ? "eager" : "lazy"}
+            fetchpriority={i === 0 ? "high" : "auto"}
+          />
+        )}
+      </article>
+    </div>
+  </div>
+</section>
       );
     })}
   </main>
 </Layout>
 
 <style>
-  .affiches-main {
-    width: 100%;
-    background: var(--white);
+ .affiches-main {
+  width: 100%;
+  background: var(--white);
+}
+
+.affiche-section {
+  background: var(--white);
+}
+
+.affiche-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.affiche-card {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  border: 3px solid var(--black);
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.affiche-card.is-right {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.affiche-card.is-right .affiche-meta {
+  order: 2;
+}
+
+.affiche-card.is-right .affiche-content {
+  order: 1;
+}
+
+.affiche-meta {
+  background-color: var(--primary-gray);
+  color: var(--white);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 3px solid var(--black);
+}
+
+.affiche-card.is-right .affiche-meta {
+  border-right: none;
+  border-left: 3px solid var(--black);
+}
+
+.affiche-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.affiche-meta h2 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 0.95;
+  color: var(--white);
+}
+
+.affiche-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+  min-height: 420px;
+}
+
+.content-white {
+  background: var(--white);
+}
+
+.content-red {
+  background: var(--red);
+}
+
+.affiche-content :global(img),
+.affiche-content iframe {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: var(--white);
+  border: 2px solid var(--black);
+}
+
+.affiche-content iframe {
+  width: 100%;
+  height: 78vh;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  .affiche-card,
+  .affiche-card.is-right {
+    grid-template-columns: 1fr;
   }
 
-  .affiche-section {
-    background: var(--white);
+  .affiche-meta,
+  .affiche-card.is-right .affiche-meta {
+    order: 1;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid var(--black);
+    padding: 24px 20px;
   }
 
-  .full {
-    width: 100%;
-    display: flex;
+  .affiche-content,
+  .affiche-card.is-right .affiche-content {
+    order: 2;
+    padding: 18px;
+    min-height: 280px;
   }
 
-  .empty-50 {
-    width: 50%;
-    height: 1px;
-    display: block;
+  .affiche-content iframe {
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .affiche-shell {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
-  /* keep same behavior as global, but scoped */
-  .affiche-section .title {
-    width: 50%;
-    transition: width 0.2s ease-out;
+  .affiche-card {
+    border-width: 2px;
   }
 
-  .affiche-section:hover .title {
-    width: 70%;
+  .affiche-meta,
+  .affiche-card.is-right .affiche-meta {
+    border-bottom-width: 2px;
+  }
+
+  .affiche-kicker {
+    font-size: 0.72rem;
+    margin-bottom: 10px;
+  }
+
+  .affiche-meta h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 
   .affiche-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: clamp(16px, 3vh, 32px);
+    padding: 14px;
+    min-height: 220px;
   }
 
-  .content-white {
-    background: var(--white);
-  }
-
-  .content-red {
-    background: var(--red);
-  }
-
-  /* Image component outputs an <img>, so this still applies */
   .affiche-content :global(img),
   .affiche-content iframe {
-    width: auto;
-    height: auto;
-    max-width: 90vw;
-    max-height: calc(100vh - 220px);
-    object-fit: contain;
-
-    background: var(--white);
-    border: none;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-width: 2px;
   }
 
-  @media (max-width: 768px) {
-    .affiche-section .title,
-    .affiche-section:hover .title {
-      width: 90%;
-      max-width: 90vw;
-    }
-
-    .empty-50 {
-      width: 10%;
-    }
-
-    .affiche-content :global(img),
-    .affiche-content iframe {
-      max-width: 95vw;
-      max-height: calc(100vh - 200px);
-    }
+  .affiche-content iframe {
+    height: 62vh;
   }
+}
 </style>
