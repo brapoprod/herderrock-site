@@ -36,24 +36,37 @@ const { title, showHero = true } = Astro.props;
     </header>
 
     {showHero && (
-      <section class="hero">
-        <img
-          src="/banner.jpg"
-          class="hero-image hero-image-m"
-          width="100%"
-          alt="Herderrock zaterdag 31 augustus 2024"
-        />
-        <img
-          src="/banner-d.jpg"
-          class="hero-image hero-image-d"
-          width="100%"
-          alt="Herderrock zaterdag 31 augustus 2024"
-        />
-      </section>
-    )}
+  <section class="hero hero-mist">
+    <div class="mist mist-left mist-left-top">
+      <img src="/visuals/mist-1.png" alt="" loading="eager" />
+    </div>
+    <div class="mist mist-left mist-left-bottom">
+      <img src="/visuals/mist-3.png" alt="" loading="eager" />
+    </div>
 
+    <div class="mist mist-right mist-right-top">
+      <img src="/visuals/mist-2.png" alt="" loading="eager" />
+    </div>
+    <div class="mist mist-right mist-right-bottom">
+      <img src="/visuals/mist-4.png" alt="" loading="eager" />
+    </div>
+
+    <img
+      src="/visuals/banner-main.png"
+      class="hero-image hero-image-m"
+      width="100%"
+      alt="Herderrock zaterdag 5 september 2026"
+    />
+    <img
+      src="/visuals/banner-main.png"
+      class="hero-image hero-image-d"
+      width="100%"
+      alt="Herderrock zaterdag 5 september 2026"
+    />
+  </section>
+)}
     <slot />
-    <footer>© Herderrock 1985 - 2024</footer>
+    <footer>© Herderrock 1985 - 2026</footer>
     <script>
       const toggleMenu = () => {
         const menu = document.getElementById("menu");
@@ -72,9 +85,9 @@ const { title, showHero = true } = Astro.props;
 
 <style is:global>
   :root {
-    --red: #e20613;
-    --white: #fff;
-    --primary-gray: #f3f0ef;
+    --red: #ED1C24;
+    --white: #F9EED5;
+    --primary-gray: #19203B;
     --black: #11110e;
     --bp-tablet: 768px;
   }
@@ -85,7 +98,7 @@ const { title, showHero = true } = Astro.props;
   }
   html {
     font-family: Arial, sans-serif;
-    background: ##fff;
+    background: var(--white);
   }
   body {
     margin: 0;
@@ -137,6 +150,7 @@ const { title, showHero = true } = Astro.props;
     background-color: var(--red);
     display: flex;
     justify-content: center;
+    max-height: 30%;
   }
 
   strong {
@@ -220,7 +234,7 @@ const { title, showHero = true } = Astro.props;
 
   footer {
     color: var(--white);
-    background-color: var(--black);
+    background-color: var(--primary-gray);
     padding: 16px;
     text-align: center;
   }
@@ -286,15 +300,301 @@ const { title, showHero = true } = Astro.props;
   }
 
   .hero {
-    background-color: var(--red);
+  background-color: var(--red);
+}
+
+.hero-mist {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at center, rgba(255, 240, 220, 0.08), transparent 55%),
+    linear-gradient(180deg, #140907 0%, #24110d 100%);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  min-width: 100%;
+  max-height: 610px;
+  object-fit: contain;
+  background-color: var(--white);
+  animation: heroPush 1.8s ease-out both;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 235, 210, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 55%, rgba(255, 210, 180, 0.08), transparent 42%);
+  animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+.mist {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform, opacity, filter;
+}
+
+.mist img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(255, 220, 185, 0.12));
+}
+
+/* POSITIES */
+
+.mist-left-top {
+  top: -2%;
+  left: -3%;
+  width: min(40vw, 650px);
+
+  transform-origin: left center;
+  animation:
+    mistBurstLeftTop 1.25s cubic-bezier(0.16, 1, 0.3, 1) both,
+    mistFloatLeftTop 8s ease-in-out 1.25s infinite alternate;
+}
+
+
+.mist-right-top {
+  top: -3%;
+  right: -3%;
+  width: min(40vw, 650px);
+  transform-origin: right center;
+  animation:
+    mistBurstRightTop 1.25s cubic-bezier(0.16, 1, 0.3, 1) both,
+    mistFloatRightTop 8.5s ease-in-out 1.25s infinite alternate;
+}
+
+.mist-left-bottom {
+  left: -2%;
+  bottom: -8%;
+  width: min(40vw, 650px);
+  transform-origin: left bottom;
+  animation:
+    mistBurstLeftBottom 1.45s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both,
+    mistFloatLeftBottom 9s ease-in-out 1.5s infinite alternate;
+}
+
+.mist-right-bottom {
+  right: -2%;
+  bottom: -10%;
+  width: min(40vw, 650px);
+  transform-origin: right bottom;
+  animation:
+    mistBurstRightBottom 1.45s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both,
+    mistFloatRightBottom 9.5s ease-in-out 1.5s infinite alternate;
+}
+
+/* HARDERE INTRO */
+
+@keyframes mistBurstLeftTop {
+  0% {
+    opacity: 0;
+    transform: translateX(-180px) translateY(-20px) scale(0.82);
+    filter: blur(18px);
   }
-  .hero-image {
-    min-width: 100%;
-    max-height: 600px;
-    object-fit: contain;
-    background-color: black;
+  100% {
+    opacity: 0.88;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes mistBurstRightTop {
+  0% {
+    opacity: 0;
+    transform: translateX(180px) translateY(-20px) scale(0.82);
+    filter: blur(18px);
+  }
+  100% {
+    opacity: 0.88;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes mistBurstLeftBottom {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px) translateY(90px) scale(0.78);
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 0.92;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes mistBurstRightBottom {
+  0% {
+    opacity: 0;
+    transform: translateX(150px) translateY(90px) scale(0.78);
+    filter: blur(20px);
   }
 
+  100% {
+    opacity: 0.92;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* TRAGE DRIFT NADIEN */
+
+@keyframes mistFloatLeftTop {
+  0% {
+    opacity: 0.88;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateX(34px) translateY(15px) scale(1.02);
+  }
+}
+
+@keyframes mistFloatRightTop {
+  0% {
+    opacity: 0.88;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateX(-34px) translateY(15px) scale(1.02);
+  }
+}
+
+@keyframes mistFloatLeftBottom {
+  0% {
+    opacity: 0.92;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0.98;
+    transform: translateX(26px) translateY(-16px) scale(1.02);
+  }
+}
+
+@keyframes mistFloatRightBottom {
+  0% {
+    opacity: 0.92;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0.98;
+    transform: translateX(-26px) translateY(-15px) scale(1.02);
+  }
+}
+
+@keyframes heroPush {
+  0% {
+    transform: scale(1.035);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-image-m {
+  display: none;
+}
+
+.hero-image-d {
+  display: block;
+}
+
+@media only screen and (max-width: 992px) {
+  .hero-image-m {
+    display: block;
+  }
+
+  .hero-image-d {
+    display: none;
+  }
+
+  .hero-image {
+    max-height: 470px;
+  }
+
+  .mist-left-top,
+  .mist-right-top {
+    width: min(42vw, 360px);
+  }
+
+  .mist-left-bottom,
+  .mist-right-bottom {
+    width: min(46vw, 390px);
+  }
+
+  .mist-left-top {
+    left: -10%;
+  }
+
+  .mist-right-top {
+    right: -10%;
+  }
+
+  .mist-left-bottom {
+    left: -8%;
+    bottom: -6%;
+  }
+
+  .mist-right-bottom {
+    right: -8%;
+    bottom: -7%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-image {
+    max-height: 410px;
+  }
+
+  .mist-left-top,
+  .mist-right-top {
+    width: 48vw;
+  }
+
+  .mist-left-bottom,
+  .mist-right-bottom {
+    width: 52vw;
+  }
+
+  .mist-left-top {
+    top: 2%;
+    left: -16%;
+  }
+
+  .mist-right-top {
+    top: 2%;
+    right: -16%;
+  }
+
+  .mist-left-bottom {
+    left: -14%;
+    bottom: -4%;
+  }
+
+  .mist-right-bottom {
+    right: -14%;
+    bottom: -5%;
+  }
+}
   .hero-image-m {
     display: none;
   }
@@ -332,28 +632,56 @@ const { title, showHero = true } = Astro.props;
   }
 
   @media only screen and (max-width: 768px) {
-    section .title {
-      width: 90%;
-    }
-    section:hover .title {
-      width: 90%;
-    }
-    .empty-50 {
-      width: 10%;
-    }
-
-    .padding-y {
-      padding-top: 32px;
-      padding-bottom: 32px;
-    }
+  .hero-image {
+    max-height: 420px;
   }
 
-  @media only screen and (max-width: 992px) {
-    .hero-image-m {
-      display: block;
-    }
-    .hero-image-d {
-      display: none;
-    }
+  .mist {
+    opacity: 0.58;
   }
+
+  .mist-left-top {
+    top: 0;
+  }
+
+  .mist-right-top {
+    top: 0;
+  }
+
+  .mist-left-bottom {
+    bottom: -4%;
+  }
+
+  .mist-right-bottom {
+    bottom: -5%;
+  }
+}
+
+ @media only screen and (max-width: 992px) {
+  .hero-image-m {
+    display: block;
+  }
+
+  .hero-image-d {
+    display: none;
+  }
+
+  .mist-left-top,
+  .mist-right-top {
+    width: min(48vw, 360px);
+  }
+
+  .mist-left-bottom,
+  .mist-right-bottom {
+    width: min(52vw, 400px);
+  }
+
+  .mist-left {
+    left: -14%;
+  }
+
+  .mist-right {
+    right: -14%;
+  }
+}
 </style>

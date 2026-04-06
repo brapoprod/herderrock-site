@@ -4,65 +4,145 @@ interface Props {
   showTitle?: boolean;
 }
 
-const { title = "Dank aan onze SPONSORS", showTitle = true } = Astro.props;
+const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
 ---
 
-<section class="in-the-picture padding-top">
-  {showTitle && <h2 class="title title-left">{title}</h2>}
-  <article class="vip-highlight padding-x padding-y">
-    <a href="https://www.verzekeringenmuylaert.be/" target="_blank"
-      ><img
-        src="/sponsors/vip+/verzekeringen-muylaert.png"
-        alt="sponsor"
-      /></a
-    >
+<section class="vip-section padding-y">
+  <div class="vip-shell padding-x">
+    {showTitle && (
+      <div class="vip-header">
+        <span class="vip-kicker">Herderrock 2026</span>
+        <h2>{title}</h2>
+      </div>
+    )}
 
-    <a href="https://www.inbraakveilig.be/" target="_blank"
-      ><img src="/sponsors/vip+/inbraakveilig.png" alt="sponsor" /></a
-    >
-    <a href="https://www.groeneryck.be/" target="_blank"
-      ><img src="/sponsors/vip+/groeneryck.png" alt="sponsor" /></a
-    >
-    <a href="https://www.meersmanaccountancy.com/" target="_blank"
-      ><img src="/sponsors/vip+/meersman.png" alt="sponsor" /></a
-    >
-  </article>
+    <article class="vip-highlight">
+      <a href="https://www.verzekeringenmuylaert.be/" target="_blank" rel="noreferrer">
+        <span class="vip-card-inner">
+          <img
+            src="/sponsors/vip+/verzekeringen-muylaert.png"
+            alt="Verzekeringen Muylaert"
+          />
+        </span>
+      </a>
+
+      <a href="https://www.inbraakveilig.be/" target="_blank" rel="noreferrer">
+        <span class="vip-card-inner">
+          <img src="/sponsors/vip+/inbraakveilig.png" alt="Inbraakveilig" />
+        </span>
+      </a>
+
+      <a href="https://www.groeneryck.be/" target="_blank" rel="noreferrer">
+        <span class="vip-card-inner">
+          <img src="/sponsors/vip+/groeneryck.png" alt="Groeneryck" />
+        </span>
+      </a>
+
+      <a href="https://www.meersmanaccountancy.com/" target="_blank" rel="noreferrer">
+        <span class="vip-card-inner">
+          <img src="/sponsors/vip+/meersman.png" alt="Meersman Accountancy" />
+        </span>
+      </a>
+    </article>
+  </div>
 </section>
 
 <style>
+  .vip-section {
+    background-color: var(--white);
+  }
+
+  .vip-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .vip-header {
+    margin-bottom: 28px;
+  }
+
+  .vip-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    color: var(--black);
+    opacity: 0.8;
+  }
+
+  .vip-header h2 {
+    margin: 0;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2.3rem, 5vw, 4.4rem);
+    line-height: 0.95;
+    color: var(--primary-gray);
+    text-transform: uppercase;
+  }
+
   .vip-highlight {
-    background-color: var(--primary-gray);
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
   }
 
   .vip-highlight a {
-    width: 25%;
+    display: block;
+    text-decoration: none;
+    border: 3px solid var(--black);
+    background-color: var(--red);
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .vip-highlight a:hover {
+    transform: translateY(-4px);
+    background-color: var(--primary-gray);
+  }
+
+  .vip-card-inner {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-content: center;
+    min-height: 220px;
+    padding: 24px;
+    background-color: var(--white);
+    border: 3px solid var(--black);
+    margin: 10px;
   }
 
   .vip-highlight img {
+    display: block;
     width: 100%;
-    max-height: 600px;
+    max-width: 220px;
+    max-height: 120px;
     object-fit: contain;
   }
 
   @media only screen and (max-width: 992px) {
     .vip-highlight {
-      flex-wrap: wrap;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .vip-highlight a {
-      width: 50%;
+
+    .vip-card-inner {
+      min-height: 190px;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    .vip-highlight a {
-      width: 100%;
-    }
     .vip-highlight {
-      flex-direction: column;
+      grid-template-columns: 1fr;
+    }
+
+    .vip-card-inner {
+      min-height: 170px;
+      padding: 20px;
+      margin: 8px;
+    }
+
+    .vip-header {
+      margin-bottom: 22px;
     }
   }
-</style> 
+</style>
