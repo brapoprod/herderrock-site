@@ -1,6 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VIPSponsors from "../components/VIPSponsors.astro";
+
+const lineupActs = [
+  {
+    name: "Customs",
+    meta: "Headliner",
+    image: "/bands/customs.webp",
+    alt: "Customs op Herderrock 2026",
+  },
+  {
+    name: "Tijs Vanneste",
+    meta: "& Tangled Horns",
+    image: "/bands/tijs.webp",
+    alt: "Tijs Vanneste & Tangled Horns op Herderrock 2026",
+  },
+  {
+    name: "DNSBR",
+    meta: "Live",
+    image: "/bands/dnsbr.webp",
+    alt: "DNSBR op Herderrock 2026",
+  },
+  {
+    name: "Gino's Eyeball",
+    meta: "Live",
+    image: "/bands/gino's eyeball.webp",
+    alt: "Gino's Eyeball op Herderrock 2026",
+    nameClass: "lineup-card-name-compact",
+  },
+  {
+    name: "SUSTAIN",
+    meta: "Live",
+    image: "/bands/SUSTAIN.webp",
+    alt: "SUSTAIN op Herderrock 2026",
+  },
+  {
+    name: "Poeslief",
+    meta: "Live",
+    image: "/bands/poeslief.webp",
+    alt: "Poeslief op Herderrock 2026",
+  },
+  {
+    name: "Fradri",
+    meta: "DJ set",
+    image: "/bands/fradri.webp",
+    alt: "Fradri op Herderrock 2026",
+  },
+  {
+    name: "DIBBS",
+    meta: "DJ set",
+    image: "/bands/dibbs.webp",
+    alt: "DIBBS op Herderrock 2026",
+  },
+
+
+];
 ---
 
 <Layout title="Herderrock">
@@ -92,7 +146,7 @@ import VIPSponsors from "../components/VIPSponsors.astro";
           preload="metadata"
           playsinline
           muted
-          poster="/visuals/aftermovie-poster.avif"
+          poster="/visuals/aftermovie-poster.webp"
           class="aftermovie-video"
         >
           <source src="/videos/aftermovie.webm" type="video/webm" />
@@ -106,11 +160,12 @@ import VIPSponsors from "../components/VIPSponsors.astro";
       <div class="lineup-shell padding-x">
         <div class="lineup-top">
           <div class="lineup-intro">
-            <h2>De eerste namen zijn er.</h2>
+            <h2>De lineup is er!</h2>
             <p>
-              <strong>Customs</strong> staat vast als headliner voor Herderrock 2026.
-              Ook <strong>Tijs Vanneste & Tangled Horns</strong> is bevestigd. De rest van de affiche
-              volgt binnenkort.
+              <strong>Customs</strong> staat vast als headliner voor Herderrock 2026,
+              met onder meer <strong>Tijs Vanneste & Tangled Horns</strong>,
+              <strong>DNSBR</strong>, <strong>SUSTAIN</strong>, <strong>Poeslief</strong>
+              en onze DJ's op de affiche.
             </p>
           </div>
 
@@ -121,39 +176,17 @@ import VIPSponsors from "../components/VIPSponsors.astro";
         </div>
 
         <div class="lineup-grid">
-          <article class="lineup-card lineup-card-confirmed">
-            <div class="lineup-card-image">
-              <img src="/bands/customs.png" alt="Customs op Herderrock 2026" />
-            </div>
-            <div class="lineup-card-body">
-              <span class="lineup-card-name">Customs</span>
-              <span class="lineup-card-meta">Headliner</span>
-            </div>
-          </article>
-
-          <article class="lineup-card lineup-card-confirmed">
-            <div class="lineup-card-image">
-              <img src="/bands/tijs.webp" alt="Tijs Vanneste op Herderrock 2026" />
-            </div>
-            <div class="lineup-card-body">
-              <span class="lineup-card-name">Tijs Vanneste</span>
-               <span class="lineup-card-meta">& Tangled Horns</span>
-            </div>
-          </article>
-
-          <article class="lineup-card lineup-card-placeholder">
-            <div class="lineup-card-body">
-              <span class="lineup-card-name">Binnenkort</span>
-              <span class="lineup-card-meta">Nieuwe naam volgt</span>
-            </div>
-          </article>
-
-          <article class="lineup-card lineup-card-placeholder">
-            <div class="lineup-card-body">
-              <span class="lineup-card-name">Binnenkort</span>
-              <span class="lineup-card-meta">Nieuwe naam volgt</span>
-            </div>
-          </article>
+          {lineupActs.map((act) => (
+            <article class="lineup-card lineup-card-confirmed">
+              <div class="lineup-card-image">
+                <img src={act.image} alt={act.alt} loading="lazy" decoding="async" />
+              </div>
+              <div class="lineup-card-body">
+                <span class={`lineup-card-name ${act.nameClass ?? ""}`}>{act.name}</span>
+                <span class="lineup-card-meta">{act.meta}</span>
+              </div>
+            </article>
+          ))}
         </div>
 
         <div class="lineup-bottom">
@@ -585,11 +618,18 @@ import VIPSponsors from "../components/VIPSponsors.astro";
   }
 
   .lineup-card-name {
+    width: 100%;
     font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-size: clamp(1.5rem, 2.4vw, 2.2rem);
     line-height: 0.95;
+    text-align: center;
     text-transform: uppercase;
     color: var(--white);
+  }
+
+  .lineup-card-name-compact {
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    white-space: nowrap;
   }
 
   .lineup-card-meta {

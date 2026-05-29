@@ -7,36 +7,34 @@ import VIPSponsors from "../components/VIPSponsors.astro";
   <main>
     <VIPSponsors title="Dank aan onze SPONSORS" />
   </main>
-  <!-- when vip is back
-  <section class="vip padding-y padding-x">
-    <a href="https://www.pmgcharge.be/" class="vip-no-plus" target="_blank"
-      ><img src="/sponsors/vip/pmg.png" alt="sponsor" /></a
-    >
-  </section>
-  -->
+
   <section class="comfort padding-y padding-x wrap">
-    <img class="black-and-white" src="/sponsors/comfort/pmg.png" alt="sponsor" />
-    <img class="invert" src="/sponsors/comfort/odt.png" alt="sponsor" />
-    <img src="/sponsors/comfort/primus-w.png" alt="sponsor" />
-    <img src="/sponsors/comfort/rvm.png" alt="sponsor" />
-    <img src="/sponsors/comfort/stad-w.png" alt="sponsor" />
-    <img src="/sponsors/comfort/vanmolle-w.png" alt="sponsor" />
-    <img src="/sponsors/comfort/ddm.JPG" alt="sponsor" />
-    <img src="/sponsors/comfort/brainpowerproductions.png" alt="sponsor" />
-    <img src="/sponsors/comfort/bruckershof.png" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/comfort/Lieven-DC.jpg" alt="sponsor" />
-    <img src="/sponsors/comfort/jurgen-w.png" alt="sponsor" />
-    <img src="/sponsors/comfort/debiek.jpg" alt="sponsor" />
-    <img src="/sponsors/comfort/steven-w.png" alt="sponsor" />
-    <img src="/sponsors/comfort/jvl.png" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/comfort/vds.jpeg" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/comfort/vds.webp" alt="VDS Vastgoedexpert" />
+    <img class="invert" src="/sponsors/comfort/odt.webp" alt="Eetcafe Onder den Toren" />
+    <img src="/sponsors/comfort/stad-w.webp" alt="Stad Aalst" />
+    <img src="/sponsors/comfort/vanmolle-w.webp" alt="Van Molle" />
+    <img src="/sponsors/comfort/ddm.webp" alt="De Meersman" />
+    <img src="/sponsors/comfort/brainpowerproductions.webp" alt="Brain Power Productions" />
+    <img src="/sponsors/comfort/bruckershof.webp" alt="Bruckershof" />
+    <img class="black-and-white" src="/sponsors/comfort/Lieven-DC.webp" alt="De Cock Lieven" />
+    <img src="/sponsors/comfort/jurgen-w.webp" alt="Jurgen Schrijnwerk" />
+    <img src="/sponsors/comfort/debiek.webp" alt="Hostellerie De Biek" />
+    <img src="/sponsors/comfort/steven-w.webp" alt="Steven De Ridder" />
+    <img src="/sponsors/comfort/jvl.webp" alt="Jonas Van Lierde Projects" />
+    <img src="/sponsors/comfort/ERIK DC wit.webp" alt="Erik De Cock" />
+    <img class="black-and-white" src="/sponsors/comfort/FoFie_DavidCooreman.webp" alt="Fo & Fie en Cooreman David" />
+    <img class="black-and-white" src="/sponsors/comfort/Kapsuul.webp" alt="Kapsuul Beer Co." />
+    <img class="black-and-white" src="/sponsors/comfort/Vlekkeloos.webp" alt="Vlekkeloos Zetel- en Tapijtreiniging" />
+    <img class="black-and-white" src="/sponsors/comfort/Guna.webp" alt="Guna Projects" />
   </section>
+
   <section class="basic padding-y padding-x wrap">
-    <img class="black-and-white" src="/sponsors/basic/flora.png" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/basic/kristof.png" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/basic/wiezeslager.jpg" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/basic/lingerie.jpg" alt="sponsor" />
-    <img class="black-and-white" src="/sponsors/basic/casakoekeroel.png" alt="sponsor" />
+    <img class="black-and-white" src="/sponsors/basic/flora.webp" alt="Flora" />
+    <img class="black-and-white" src="/sponsors/basic/kristof.webp" alt="Kristof Van Goethem" />
+    <img class="black-and-white" src="/sponsors/basic/casakoekeroel.webp" alt="Casa Koekeroel" />
+    <img class="black-and-white" src="/sponsors/basic/joli.webp" alt="Joli Lingerie" />
+    <img class="black-and-white" src="/sponsors/basic/stevederop.webp" alt="Steve De Rop" />
+    <img src="/sponsors/comfort/primus-w.webp" alt="Primus Haacht" />
   </section>
 </Layout>
 
@@ -44,79 +42,13 @@ import VIPSponsors from "../components/VIPSponsors.astro";
   .black-and-white {
     filter: grayscale(100%);
   }
+
   .invert {
     filter: invert();
   }
+
   main {
     width: 100%;
-  }
-
-  .logo h1 {
-    display: none;
-  }
-  .button {
-    padding: 12px 16px;
-    background-color: var(--red);
-    color: var(--white);
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    border: 2px dashed var(--red);
-  }
-
-  #tshirt {
-    background-color: var(--white);
-    color: var(--red);
-    border: 2px dashed var(--red);
-  }
-
-  .cta-buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-  }
-
-  .button:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-  .about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-  }
-
-  .about-left {
-    width: 40%;
-  }
-
-  .about-right {
-    width: 60%;
-    max-height: 100%;
-  }
-
-  .about-right img {
-    width: 100%;
-    object-fit: contain;
-  }
-
-  #mb {
-    margin-bottom: 64px;
-  }
-
-  .lineup {
-    background-color: var(--primary-gray);
-  }
-  .break {
-    flex-basis: 100%;
-    height: 0;
-  }
-  .vip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--white);
   }
 
   .comfort {
@@ -147,73 +79,11 @@ import VIPSponsors from "../components/VIPSponsors.astro";
     object-fit: contain;
   }
 
-  .vip a {
-    width: 20%;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .vip img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-  }
-
-  .band-text h3 {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--red);
-  }
-
-  .band-text a {
-    color: var(--red);
-  }
-
-  .band-text {
-    font-size: 18px;
-  }
-
-  .bands {
-    background-color: var(--red);
-  }
-
-  .full {
-    width: 100%;
-    display: flex;
-  }
-
   .wrap {
     flex-wrap: wrap;
   }
 
-  .single-band {
-    width: calc(33% - 32px);
-    padding: 16px;
-  }
-  .single-band.bigger {
-    width: calc(50% - 32px);
-    padding: 16px;
-  }
-  .single-band img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
-
-  .center {
-    justify-content: center;
-  }
-
-  .single-band h3,
-  .single-band h4 {
-    padding-left: 8px;
-  }
-
   @media only screen and (max-width: 992px) {
-    .vip a {
-      width: 40%;
-    }
-
     .comfort img {
       width: 30%;
     }
@@ -224,52 +94,12 @@ import VIPSponsors from "../components/VIPSponsors.astro";
   }
 
   @media only screen and (max-width: 768px) {
-    .single-band {
-      width: calc(50% - 32px);
-    }
-
-    .single-band.bigger {
-      width: calc(100% - 32px);
-    }
-
-    .vip a {
-      width: 80%;
-    }
-
     .comfort img {
       width: 45%;
     }
 
     .basic img {
       width: 30%;
-    }
-
-    .vip {
-      flex-direction: column;
-    }
-
-    .about {
-      width: 100%;
-      display: block;
-    }
-
-    .about-right {
-      width: 100%;
-      margin-top: 32px;
-    }
-
-    .about-left {
-      width: auto;
-      padding-left: 20px;
-    }
-    .cta-buttons {
-      justify-content: center;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .single-band {
-      width: calc(100% - 32px);
     }
   }
 </style>

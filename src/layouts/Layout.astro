@@ -11,8 +11,8 @@ const { title, showHero = true } = Astro.props;
 <html lang="nl">
   <head>
     <meta name="google-site-verification" content="zRxKiOJuqhGWPzImWd33iPDDDJ34F0CXX7pbbeO-lCM" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NPZN5CLXC"></script>
-    <script> window.dataLayer = window.dataLayer || []; 
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-9NPZN5CLXC"></script>
+    <script is:inline> window.dataLayer = window.dataLayer || []; 
     function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-9NPZN5CLXC');
@@ -243,14 +243,14 @@ const { title, showHero = true } = Astro.props;
   .logo {
     width: 200px;
     height: 200px;
-    background-image: url("/logo.png");
+    background-image: url("/logo.webp");
     background-size: contain;
     background-repeat: no-repeat;
     transition: background-image 0.2s ease-in-out;
   }
 
   .logo:hover {
-    background-image: url("/logo-hover.png");
+    background-image: url("/logo-hover.webp");
   }
 
   .logo h1 {
@@ -431,7 +431,7 @@ const { title, showHero = true } = Astro.props;
     background-color: var(--primary-gray);
     color: var(--white);
     text-align: left;
-    background-image: url("/bg-hk-25.jpg");
+    background-image: url("/bg-hk-25.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -551,7 +551,7 @@ const { title, showHero = true } = Astro.props;
 
   .banner {
     background-color: var(--red);
-    background-image: url("/bg-hk-25.jpg");
+    background-image: url("/bg-hk-25.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
