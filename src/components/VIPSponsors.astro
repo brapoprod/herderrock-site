@@ -4,45 +4,71 @@ interface Props {
   showTitle?: boolean;
 }
 
-const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
+const { title, showTitle = Boolean(Astro.props.title) } = Astro.props;
+
+const vipSponsors = [
+  {
+    href: "https://www.verzekeringenmuylaert.be/",
+    src: "/sponsors/vip+/verzekeringen-muylaert.webp",
+    alt: "Verzekeringen Muylaert",
+  },
+  {
+    href: "https://www.inbraakveilig.be/",
+    src: "/sponsors/vip+/inbraakveilig.webp",
+    alt: "Inbraakveilig",
+  },
+  {
+    href: "https://www.groeneryck.be/",
+    src: "/sponsors/vip+/groeneryck.webp",
+    alt: "Groeneryck",
+  },
+  {
+    href: "https://www.meersman-accountancy.be/",
+    src: "/sponsors/vip+/meersman.webp",
+    alt: "Meersman Accountancy",
+  },
+  {
+    href: "https://www.immotijl.be/",
+    src: "/sponsors/vip+/immotijl-transparent.webp",
+    alt: "Immo Tijl",
+    className: "vip-highlight-center-left",
+  },
+  {
+    href: "https://www.nieulandtrecycling.be/",
+    src: "/sponsors/comfort+/logoNR.webp",
+    alt: "Nieulandt Recycling",
+    className: "vip-highlight-center-middle",
+  },
+  {
+    href: "https://www.renaultwieze.be/",
+    src: "/sponsors/vip+/RenaultWieze.webp",
+    alt: "Renault Wieze Van Damme",
+    className: "vip-highlight-center-right",
+  },
+];
 ---
 
 <section class="vip-section padding-y">
   <div class="vip-shell padding-x">
-    {showTitle && (
+    {showTitle && title && (
       <div class="vip-header">
-        <span class="vip-kicker">Herderrock 2026</span>
         <h2>{title}</h2>
       </div>
     )}
 
     <article class="vip-highlight">
-      <a href="https://www.verzekeringenmuylaert.be/" target="_blank" rel="noreferrer">
-        <span class="vip-card-inner">
-          <img
-            src="/sponsors/vip+/verzekeringen-muylaert.png"
-            alt="Verzekeringen Muylaert"
-          />
-        </span>
-      </a>
-
-      <a href="https://www.inbraakveilig.be/" target="_blank" rel="noreferrer">
-        <span class="vip-card-inner">
-          <img src="/sponsors/vip+/inbraakveilig.png" alt="Inbraakveilig" />
-        </span>
-      </a>
-
-      <a href="https://www.groeneryck.be/" target="_blank" rel="noreferrer">
-        <span class="vip-card-inner">
-          <img src="/sponsors/vip+/groeneryck.png" alt="Groeneryck" />
-        </span>
-      </a>
-
-      <a href="https://www.meersman-accountancy.be/" target="_blank" rel="noreferrer">
-        <span class="vip-card-inner">
-          <img src="/sponsors/vip+/meersman.png" alt="Meersman Accountancy" />
-        </span>
-      </a>
+      {vipSponsors.map((sponsor) => (
+        <a
+          href={sponsor.href}
+          target="_blank"
+          rel="noreferrer"
+          class={sponsor.className}
+        >
+          <span class="vip-card-inner">
+            <img src={sponsor.src} alt={sponsor.alt} loading="lazy" decoding="async" />
+          </span>
+        </a>
+      ))}
     </article>
   </div>
 </section>
@@ -73,7 +99,7 @@ const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
 
   .vip-header h2 {
     margin: 0;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-size: clamp(2.3rem, 5vw, 4.4rem);
     line-height: 0.95;
     color: var(--primary-gray);
@@ -81,9 +107,14 @@ const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
   }
 
   .vip-highlight {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
+  }
+
+  .vip-highlight > a {
+    flex: 0 1 calc((100% - 48px) / 4);
   }
 
   .vip-highlight a {
@@ -122,8 +153,8 @@ const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
   }
 
   @media only screen and (max-width: 992px) {
-    .vip-highlight {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .vip-highlight > a {
+      flex-basis: calc((100% - 16px) / 2);
     }
 
     .vip-card-inner {
@@ -132,8 +163,8 @@ const { title = "Onze VIP SPONSORS", showTitle = true } = Astro.props;
   }
 
   @media only screen and (max-width: 768px) {
-    .vip-highlight {
-      grid-template-columns: 1fr;
+    .vip-highlight > a {
+      flex-basis: 100%;
     }
 
     .vip-card-inner {

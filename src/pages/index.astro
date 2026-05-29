@@ -1,53 +1,126 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VIPSponsors from "../components/VIPSponsors.astro";
+
+const lineupActs = [
+  {
+    name: "Customs",
+    meta: "Headliner",
+    image: "/bands/customs.webp",
+    alt: "Customs op Herderrock 2026",
+  },
+  {
+    name: "Tijs Vanneste",
+    meta: "& Tangled Horns",
+    image: "/bands/tijs.webp",
+    alt: "Tijs Vanneste & Tangled Horns op Herderrock 2026",
+  },
+  {
+    name: "DNSBR",
+    meta: "Live",
+    image: "/bands/dnsbr.webp",
+    alt: "DNSBR op Herderrock 2026",
+  },
+  {
+    name: "Gino's Eyeball",
+    meta: "Live",
+    image: "/bands/gino's eyeball.webp",
+    alt: "Gino's Eyeball op Herderrock 2026",
+    nameClass: "lineup-card-name-compact",
+  },
+  {
+    name: "SUSTAIN",
+    meta: "Live",
+    image: "/bands/SUSTAIN.webp",
+    alt: "SUSTAIN op Herderrock 2026",
+  },
+  {
+    name: "Poeslief",
+    meta: "Live",
+    image: "/bands/poeslief.webp",
+    alt: "Poeslief op Herderrock 2026",
+  },
+  {
+    name: "Fradri",
+    meta: "DJ set",
+    image: "/bands/fradri.webp",
+    alt: "Fradri op Herderrock 2026",
+  },
+  {
+    name: "DIBBS",
+    meta: "DJ set",
+    image: "/bands/dibbs.webp",
+    alt: "DIBBS op Herderrock 2026",
+  },
+
+
+];
 ---
 
 <Layout title="Herderrock">
   <main>
     <section class="featured-band padding-top">
-  <div class="featured-band-shell padding-x padding-y">
-    <div class="featured-band-card">
-     <div class="featured-band-visual">
-  <div class="featured-band-mist-layer">
-    <div class="featured-band-mist featured-band-mist-left">
-      <img src="/visuals/mist-3.png" alt="" loading="lazy" />
-    </div>
-    <div class="featured-band-mist featured-band-mist-right">
-      <img src="/visuals/mist-2.png" alt="" loading="lazy" />
-    </div>
-  </div>
+      <div class="featured-band-shell padding-x padding-y">
+        <div class="featured-band-card">
+          <div class="featured-band-visual">
+            <div class="featured-band-mist-layer">
+              <div class="featured-band-mist featured-band-mist-left">
+                <img src="/visuals/mist-3.webp" alt="" loading="lazy" decoding="async" />
+              </div>
+              <div class="featured-band-mist featured-band-mist-right">
+                <img src="/visuals/mist-2.webp" alt="" loading="lazy" decoding="async" />
+              </div>
+            </div>
 
-  <div class="featured-band-image-frame">
-    <img src="/bands/customs.png" alt="Band in the picture Customs" />
-  </div>
-</div>
+            <div class="featured-band-image-frame">
+              <img
+                src="/bands/tijs.webp"
+                alt="Tijs Vanneste & Tangled Horns in de spotlight op Herderrock"
+              />
+            </div>
+          </div>
 
-      <div class="featured-band-content">
-        <span class="featured-band-kicker">Band in the picture</span>
-        <h2>Customs</h2>
+          <div class="featured-band-content">
+            <span class="featured-band-kicker">BAND IN THE PICTURE </span>
+        <h2>
+          Tijs Vanneste
+          <span class="featured-band-subtitle">&amp; Tangled Horns</span>
+        </h2>
         <p class="featured-band-lead">
-          Herderrock 2026 zet mee in op Belgische namen met karakter, en
-          <strong>Customs</strong> past daar perfect in.
+          Met <strong>Tattoorist - Live</strong> nemen Tijs Vanneste en
+          <strong>Tangled Horns</strong> je mee op een muzikale roadtrip door Europa.
         </p>
         <p>
-          Met hun strakke sound, herkenbare hooks en stevige liveshows brengen
-          ze exact die energie die past bij Herderrock:
-          krachtig, sfeervol en met presence.
+          In <strong>Tattoorist - Live</strong> worden Londen, Parijs en Berlijn
+          vertaald naar krachtige soundscapes, verhalen en beelden. Met hun rauwe
+          live-energie brengen Tijs en Tangled Horns een intens muzikaal spektakel
+          vol rock en Europese invloeden. Alsof dat nog niet genoeg is, staat hun nummer
+          <strong>Paris is Burning</strong> momenteel in
+          <strong>De Afrekening</strong> van Studio Brussel. Momenteel op jouw tv
+          en radio, op <strong>5 september</strong> ook op Herderrock.
         </p>
 
-        <div class="featured-band-links">
-          <a href="https://www.youtube.com/@aboutcustoms" target="_blank">
-            Bekijk Customs op YouTube
-          </a>
-          <a href="https://open.spotify.com/artist/4btaBmsYkw6u8umye551rR?si=H7Z0Ba0JTL2cnlhiQ-AlLA" target="_blank">
-            Beluister Customs op Spotify
-          </a>
+            <div class="featured-band-links">
+              <a
+                href="https://open.spotify.com/artist/1Z87mJHVHVb3XxdFD9Cgk5?si=b31cc101cfff4aa8"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Beluister Tangled Horns op Spotify
+              </a>
+              <a
+                href="https://www.vrt.be/nl/over-ons/nieuws-over-vrt/tijs-vanneste-verkent-europa-door-de-lens-van-tattoo-artiesten-in-nieuwe-reeks-tattoorist"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ontdek Tattoorist
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
     <section id="about" class="about padding-y">
       <article class="about-left padding-x">
         <p>Herderrock, een cosy festival sinds 1985</p>
@@ -58,92 +131,91 @@ import VIPSponsors from "../components/VIPSponsors.astro";
         </p>
         <p>
           Elk jaar streven we voor een cosy ervaring voor jong en al iets ouder,
-          met de nadruk op lokaal talent maar ook de belgische rising stars in
+          met de nadruk op lokaal talent maar ook de Belgische rising stars in
           de rockwereld komen aan bod.
         </p>
         <p id="mb">
           Dit jaar vieren we onze 41ste editie, en dat doen we met een
           spectaculaire affiche. Op <strong>5 september</strong>, plaats wordt binnenkort bekend!
         </p>
-        <div class="cta-buttons">
-          <!-- <a
-            class="button"
-            id="tickets"
-            href="https://herderrock.eventsquare.store/"
-            target="_blank">Bestel hier je TICKETS</a
-          > -->
-          <!-- <a
-            class="button"
-            id="tshirt"
-            href="https://forms.gle/qE89soAh5ZMp7Xrw9"
-            target="_blank">Bestel hier je TSHIRT</a
-          > -->
-        </div>
       </article>
-        <div class="aftermovie-video-wrap">
+
+      <div class="aftermovie-video-wrap">
         <video
           controls
-          preload="none"
+          preload="metadata"
           playsinline
-          poster="/visuals/aftermovie-poster.jpg"
+          muted
+          poster="/visuals/aftermovie-poster.webp"
           class="aftermovie-video"
         >
           <source src="/videos/aftermovie.webm" type="video/webm" />
-                    <source src="/videos/aftermovie.mp4" type="video/mp4" />
-
+          <source src="/videos/aftermovie.mp4" type="video/mp4" />
           Je browser ondersteunt deze video niet.
         </video>
       </div>
     </section>
-   <section id="line-up" class="lineup-soon padding-y">
-  <div class="lineup-soon-shell padding-x">
-    <div class="lineup-soon-card">
-      <div class="lineup-soon-visual">
-        <div class="lineup-soon-mist lineup-soon-mist-left">
-          <img src="/visuals/mist-1.png" alt="" loading="lazy" />
-        </div>
-        <div class="lineup-soon-mist lineup-soon-mist-right">
-          <img src="/visuals/mist-4.png" alt="" loading="lazy" />
+
+    <section id="line-up" class="lineup-section padding-y">
+      <div class="lineup-shell padding-x">
+        <div class="lineup-top">
+          <div class="lineup-intro">
+            <h2>De lineup is er!</h2>
+            <p>
+              <strong>Customs</strong> staat vast als headliner voor Herderrock 2026,
+              met onder meer <strong>Tijs Vanneste & Tangled Horns</strong>,
+              <strong>DNSBR</strong>, <strong>SUSTAIN</strong>, <strong>Poeslief</strong>
+              en onze DJ's op de affiche.
+            </p>
+          </div>
+
+          <div class="lineup-stamp">
+            <span class="lineup-stamp-label">Herderrock 2026</span>
+            <strong>LINE-UP</strong>
+          </div>
         </div>
 
-        <div class="lineup-soon-stamp">
-          <span class="lineup-soon-label">Herderrock 2026</span>
-          <h2>LINE-UP</h2>
-          <p>COMING SOON</p>
+        <div class="lineup-grid">
+          {lineupActs.map((act) => (
+            <article class="lineup-card lineup-card-confirmed">
+              <div class="lineup-card-image">
+                <img src={act.image} alt={act.alt} loading="lazy" decoding="async" />
+              </div>
+              <div class="lineup-card-body">
+                <span class={`lineup-card-name ${act.nameClass ?? ""}`}>{act.name}</span>
+                <span class="lineup-card-meta">{act.meta}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="lineup-bottom">
+          <p class="lineup-note">
+            Speeluren volgen later. Hou onze socials in de gaten en check deze pagina
+            regelmatig terug voor nieuwe bevestigingen.
+          </p>
+
+          <div class="lineup-actions">
+            <a href="/faq">Meer info</a>
+            <a href="/sponsors">Bekijk sponsors</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="lineup-soon-content">
-        <span class="lineup-soon-kicker">Onze volledige line-up</span>
-        <h3>Nog even geduld.</h3>
-        <p>
-          We lossen de namen binnenkort. Verwacht opnieuw een sterke mix van
-          lokaal talent, Belgische klasse en een geweldige affiche!
-        </p>
-        <p>
-          Kom binnenkort naar onze Afterwork, hou onze socials in de gaten en check deze pagina regelmatig terug
-          voor de eerste bevestigingen!
-        </p>
-
-        <div class="lineup-soon-actions">
-          <a href="/faq">Meer info</a>
-          <a href="/sponsors">Bekijk sponsors</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <VIPSponsors title="Onze VIP SPONSORS" />
+    <VIPSponsors />
   </main>
 </Layout>
 
 <style>
-  main {
-    width: 100%;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
-  .logo h1 {
-    display: none;
+  main {
+    width: 100%;
   }
 
   .button {
@@ -172,616 +244,718 @@ import VIPSponsors from "../components/VIPSponsors.astro";
     cursor: pointer;
     opacity: 0.5;
   }
-.about {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: stretch;
-  background-color: var(--white);
-  gap: 24px;
-}
 
-.about-left {
-  padding: 56px 56px 56px 64px;
-  color: var(--primary-gray);
-  font-size: 18px;
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.about-left > * {
-  max-width: 560px;
-}
-
-.about-left p {
-  margin: 0 0 18px 0;
-  line-height: 1.8;
-}
-
-.about-left p:first-child {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 0.95;
-  text-transform: uppercase;
-  color: var(--primary-gray);
-  margin-bottom: 24px;
-}
-
-.about-left strong {
-  color: var(--red);
-  display: inline-block;
-}
-
-.aftermovie-video-wrap {
-  width: 100%;
-  min-height: 100%;
-  background-color: var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--black);
-}
-
-.aftermovie-video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  max-height: 720px;
-  object-fit: cover;
-  background-color: var(--black);
-}
-
-#mb {
-  margin-bottom: 0;
-}
-  .lineup {
-    background-color: var(--primary-gray);
-      /* border-bottom: 3px solid var(--black); */
+  .featured-band,
+  .about,
+  .lineup-section {
+    background-color: var(--white);
   }
 
- .featured-band {
-  position: relative;
-  background-color: var(--white);
-  overflow: hidden;
-}
-
-.featured-band-shell {
-  position: relative;
-  z-index: 1;
-    /* border-top: 3px solid var(--black); */
-}
-
-.featured-band-card {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: stretch;
-  overflow: hidden;
-  background-color: var(--primary-gray);
-  border: 3px solid var(--black);
-}
-
-.featured-band-visual {
-  position: relative;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--red);
-  overflow: hidden;
-}
-
-.featured-band-mist-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.featured-band-mist {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.9;
-}
-
-.featured-band-mist img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.featured-band-mist-left {
-  left: -5%;
-  bottom: -5%;
-  width: min(30vw, 360px);
-}
-
-.featured-band-mist-right {
-  right: -7%;
-  top: -6%;
-  width: min(26vw, 320px);
-}
-
-.featured-band-image-frame {
-  position: relative;
-  z-index: 2;
-  width: min(82%, 660px);
-  animation: featuredFrameIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.featured-band-image-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 560px;
-  object-fit: contain;
-  animation: featuredImageIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.featured-band-content {
-  padding: 56px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--white);
-  background-color: var(--primary-gray);
-  animation: featuredContentIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-}
-
-.featured-band-kicker {
-  display: inline-block;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
-  color: var(--white);
-  opacity: 0.8;
-}
-
-.featured-band-content h2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.9;
-  color: var(--white);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.featured-band-lead {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-
-.featured-band-content p {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--white);
-  margin: 0 0 12px 0;
-}
-
-.featured-band-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.featured-band-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 20px;
-  border: 2px solid var(--white);
-  color: var(--white);
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.featured-band-links a:hover {
-  transform: translateY(-2px);
-  background-color: var(--white);
-  color: var(--red);
-}
-
-@keyframes featuredFrameIn {
-  0% {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes featuredImageIn {
-  0% {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes featuredContentIn {
-  0% {
-    opacity: 0;
-    transform: translateX(28px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.lineup-soon {
-  background-color: var(--white);
-    /* border-bottom: 3px solid var(--black); */
-}
-
-.lineup-soon-shell {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.lineup-soon-card {
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  border: 3px solid var(--black);
-  background-color: var(--white);
-  overflow: hidden;
-}
-
-.lineup-soon-visual {
-  position: relative;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--red);
-  overflow: hidden;
-}
-
-.lineup-soon-mist {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.95;
-}
-
-.lineup-soon-mist img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.lineup-soon-mist-left {
-  left: -4%;
-  bottom: -6%;
-  width: min(30vw, 340px);
-}
-
-.lineup-soon-mist-right {
-  right: -5%;
-  top: -6%;
-  width: min(28vw, 320px);
-}
-
-.lineup-soon-stamp {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  border: 3px solid var(--black);
-  background-color: var(--primary-gray);
-  color: var(--white);
-  padding: 40px 34px;
-  min-width: min(78%, 520px);
-  animation: lineupSoonIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lineup-soon-label {
-  display: inline-block;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
-}
-
-.lineup-soon-stamp h2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(3.2rem, 7vw, 6rem);
-  line-height: 0.9;
-  margin-bottom: 10px;
-}
-
-.lineup-soon-stamp p {
-  margin: 0;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
-.lineup-soon-content {
-  background-color: var(--primary-gray);
-  color: var(--white);
-  padding: 56px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  animation: lineupSoonContentIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-}
-
-.lineup-soon-kicker {
-  display: inline-block;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.lineup-soon-content h3 {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  line-height: 0.95;
-  margin-bottom: 20px;
-  color: var(--white);
-}
-
-.lineup-soon-content p {
-  margin: 0 0 14px 0;
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-.lineup-soon-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.lineup-soon-actions a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 20px;
-  border: 2px solid var(--white);
-  background-color: transparent;
-  color: var(--white);
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.lineup-soon-actions a:hover {
-  transform: translateY(-2px);
-  background-color: var(--white);
-  color: var(--red);
-}
-
-@keyframes lineupSoonIn {
-  0% {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes lineupSoonContentIn {
-  0% {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .lineup-soon-card {
-    grid-template-columns: 1fr;
+  .featured-band-shell,
+  .lineup-shell {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .lineup-soon-visual {
-    min-height: 340px;
-  }
-
-  .lineup-soon-content {
-    padding: 40px 30px;
-  }
-   .about {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .about {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: stretch;
+    gap: 24px;
   }
 
   .about-left {
-    padding: 40px 32px;
+    padding: 56px 56px 56px 64px;
+    color: var(--primary-gray);
+    font-size: 18px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .about-left > * {
-    max-width: 100%;
+    max-width: 560px;
+  }
+
+  .about-left p {
+    margin: 0 0 18px 0;
+    line-height: 1.8;
+  }
+
+  .about-left p:first-child {
+    font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--primary-gray);
+    margin-bottom: 24px;
+  }
+
+  .about-left strong {
+    color: var(--red);
+    display: inline;
+  }
+
+  #mb {
+    margin-bottom: 0;
+  }
+
+  .aftermovie-video-wrap {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--black);
   }
 
   .aftermovie-video {
-    min-height: 360px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    max-height: 720px;
+    object-fit: cover;
+    background-color: var(--black);
   }
-}
 
-
- @media only screen and (max-width: 1100px) {
   .featured-band-card {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: stretch;
+    overflow: hidden;
+    background-color: var(--primary-gray);
+    border: 3px solid var(--black);
   }
 
   .featured-band-visual {
-    min-height: 420px;
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    overflow: hidden;
+  }
+
+  .featured-band-mist-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .featured-band-mist {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  .featured-band-mist img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .featured-band-mist-left {
+    left: -5%;
+    bottom: -5%;
+    width: min(30vw, 360px);
+  }
+
+  .featured-band-mist-right {
+    right: -7%;
+    top: -6%;
+    width: min(26vw, 320px);
+  }
+
+  .featured-band-image-frame {
+    position: relative;
+    z-index: 2;
+    width: min(82%, 660px);
+    animation: featuredFrameIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .featured-band-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    animation: featuredImageIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .featured-band-content {
-    padding: 40px 30px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .lineup-soon-shell {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .lineup-soon-card {
-    border-width: 2px;
-  }
-
-  .lineup-soon-visual {
-    min-height: 220px;
-    padding: 14px;
-  }
-
-  .lineup-soon-stamp {
-    min-width: 0;
-    width: 100%;
-    max-width: 360px;
-    padding: 22px 16px;
-    border-width: 2px;
-    margin: 0 auto;
-  }
-
-  .lineup-soon-content {
-    padding: 24px 0;
+    padding: 56px 48px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    color: var(--white);
     background-color: var(--primary-gray);
+    animation: featuredContentIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
-  .lineup-soon-content > * {
-    width: 100%;
-  }
-
-  .lineup-soon-content {
-    position: relative;
-  }
-
-  .lineup-soon-content::before {
-    content: "";
-    display: block;
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-.featured-band-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 14px 20px;
-  border: 2px solid var(--white);
-  color: var(--white);
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.featured-band-links a:hover {
-  transform: translateY(-2px);
-  background-color: var(--white);
-  color: var(--red);
-}
-  .lineup-soon-kicker,
-  .lineup-soon-content h3,
-  .lineup-soon-content p,
-  .lineup-soon-actions {
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .lineup-soon-kicker {
-    margin-bottom: 12px;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-  }
-
-  .lineup-soon-content h3 {
-    font-size: clamp(2rem, 11vw, 3rem);
+  .featured-band-kicker {
+    display: inline-block;
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    color: var(--white);
+    opacity: 0.8;
   }
 
-  .lineup-soon-content p {
-    font-size: 0.98rem;
-    line-height: 1.65;
+  .featured-band-content h2 {
+    font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .featured-band-subtitle {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.56em;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  .featured-band-lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--white);
     margin-bottom: 12px;
   }
 
-  .lineup-soon-actions {
+  .featured-band-content p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--white);
+    margin: 0 0 12px 0;
+  }
+
+  .featured-band-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 22px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .featured-band-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid var(--white);
+    color: var(--white);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .featured-band-links a:hover {
+    transform: translateY(-2px);
+    background-color: var(--white);
+    color: var(--red);
+  }
+
+  .lineup-shell {
+    border: 3px solid var(--black);
+    background-color: var(--primary-gray);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lineup-shell::before,
+  .lineup-shell::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .lineup-shell::before {
+    left: -2%;
+    bottom: -2%;
+    width: min(18vw, 200px);
+    aspect-ratio: 1;
+    background: url("/visuals/mist-1.webp") no-repeat center / contain;
+    opacity: 0.9;
+  }
+
+  .lineup-shell::after {
+    right: -2%;
+    top: -2%;
+    width: min(18vw, 200px);
+    aspect-ratio: 1;
+    background: url("/visuals/mist-4.webp") no-repeat center / contain;
+    opacity: 0.9;
+  }
+
+  .lineup-top,
+  .lineup-grid,
+  .lineup-bottom {
+    position: relative;
+    z-index: 2;
+  }
+
+  .lineup-top {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 28px;
+  }
+
+  .lineup-intro {
+    color: var(--white);
+  }
+
+  .lineup-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .lineup-intro h2 {
+    font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4.8rem);
+    line-height: 0.92;
+    margin: 0 0 18px 0;
+    color: var(--white);
+  }
+
+  .lineup-intro p {
+    margin: 0;
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--white);
+  }
+
+  .lineup-stamp {
+    border: 3px solid var(--white);
+    color: var(--white);
+    text-align: center;
+    padding: 22px 18px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 16px;
-  }
-
-  .lineup-soon-actions a {
+    justify-self: end;
     width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 13px 14px;
-    font-size: 0.98rem;
-    box-sizing: border-box;
+    max-width: 320px;
+    background-color: var(--red);
   }
 
-  .lineup-soon-mist-left {
-    width: 28vw;
-    left: -5%;
-    bottom: -2%;
+  .lineup-stamp-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.85;
   }
 
-  .lineup-soon-mist-right {
-    width: 26vw;
-    right: -6%;
-    top: -2%;
+  .lineup-stamp strong {
+    font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 0.9;
+    color: var(--white);
   }
-  .aftermovie-video-wrap {
-  width: 100%;
-  min-height: 100%;
-  background-color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5%;
-  border: none;
-}
-.aftermovie-video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  max-height: 720px;
-  object-fit: cover;
-  background-color: var(--white);
-}
 
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  .lineup-stamp span:last-child {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
 
+  .lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
 
+  .lineup-card {
+    border: 2px solid var(--white);
+    background-color: rgba(249, 238, 213, 0.05);
+    overflow: hidden;
+    min-height: 100%;
+  }
+
+  .lineup-card-image {
+    aspect-ratio: 1 / 1;
+    border-bottom: 2px solid var(--white);
+    background-color: rgba(0, 0, 0, 0.16);
+  }
+
+  .lineup-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lineup-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    align-items: center;
+  }
+
+  .lineup-card-name {
+    width: 100%;
+    font-family: "Herderrock Impact", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+    line-height: 0.95;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .lineup-card-name-compact {
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    white-space: nowrap;
+  }
+
+  .lineup-card-meta {
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    opacity: 0.82;
+  }
+
+  .lineup-card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+  }
+
+  .lineup-card-placeholder .lineup-card-body {
+    min-height: 100%;
+    justify-content: center;
+  }
+
+  .lineup-bottom {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+  }
+
+  .lineup-note {
+    margin: 0;
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 760px;
+  }
+
+  .lineup-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .lineup-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border: 2px solid var(--white);
+    background-color: transparent;
+    color: var(--white);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .lineup-actions a:hover {
+    transform: translateY(-2px);
+    background-color: var(--white);
+    color: var(--red);
+  }
+
+  @keyframes featuredFrameIn {
+    0% {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes featuredImageIn {
+    0% {
+      opacity: 0;
+      transform: scale(1.04);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes featuredContentIn {
+    0% {
+      opacity: 0;
+      transform: translateX(28px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .featured-band-card,
+    .about {
+      grid-template-columns: 1fr;
+    }
+
+    .featured-band-visual {
+      min-height: 420px;
+    }
+
+    .featured-band-content {
+      padding: 40px 30px;
+    }
+
+    .about {
+      gap: 20px;
+    }
+
+    .about-left {
+      padding: 40px 32px;
+    }
+
+    .about-left > * {
+      max-width: 100%;
+    }
+
+    .aftermovie-video {
+      min-height: 360px;
+    }
+
+    .lineup-top {
+      grid-template-columns: 1fr;
+    }
+
+    .lineup-stamp {
+      justify-self: start;
+      max-width: 360px;
+    }
+
+    .lineup-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lineup-bottom {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .featured-band-shell,
+    .lineup-shell {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .featured-band-card {
+      border-width: 2px;
+    }
+
+    .featured-band-visual {
+      min-height: 320px;
+    }
+
+    .featured-band-content {
+      padding: 32px 22px;
+    }
+
+    .featured-band-content h2 {
+      font-size: clamp(2.4rem, 12vw, 4rem);
+    }
+
+    .featured-band-links {
+      max-width: 100%;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .featured-band-links a {
+      width: 100%;
+      padding: 13px 14px;
+      font-size: 0.98rem;
+      box-sizing: border-box;
+    }
+
+    .featured-band-mist-left {
+      width: 40vw;
+      left: -10%;
+      bottom: -8%;
+    }
+
+    .featured-band-mist-right {
+      width: 34vw;
+      right: -10%;
+      top: -5%;
+    }
+
+    .about-left {
+      padding: 32px 24px;
+      font-size: 16px;
+    }
+
+    .about-left p:first-child {
+      font-size: clamp(1.8rem, 10vw, 2.8rem);
+    }
+
+    .aftermovie-video-wrap {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      border: none;
+    }
+
+    .aftermovie-video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      max-height: 720px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background-color: var(--white);
+    }
+
+    .lineup-shell {
+      padding: 22px 16px;
+      border-width: 2px;
+    }
+
+    .lineup-top {
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .lineup-kicker {
+      font-size: 0.72rem;
+      margin-bottom: 10px;
+    }
+
+    .lineup-intro h2 {
+      font-size: clamp(2.2rem, 11vw, 3.5rem);
+      margin-bottom: 14px;
+    }
+
+    .lineup-intro p,
+    .lineup-note {
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .lineup-stamp {
+      max-width: 100%;
+      padding: 18px 14px;
+      border-width: 2px;
+    }
+
+    .lineup-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .lineup-card-body {
+      padding: 14px;
+    }
+
+    .lineup-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .lineup-actions a {
+      width: 100%;
+    }
+
+    .lineup-shell::before {
+      width: 24vw;
+      left: -6%;
+      bottom: -2%;
+    }
+
+    .lineup-shell::after {
+      width: 22vw;
+      right: -6%;
+      top: -2%;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const aftermovieWrap = document.querySelector(".aftermovie-video-wrap");
+    const aftermovieVideo = document.querySelector(".aftermovie-video");
+
+    if (!(aftermovieWrap instanceof HTMLDivElement) || !(aftermovieVideo instanceof HTMLVideoElement)) {
+      return;
+    }
+
+    const togglePlayback = async (isVisible: boolean) => {
+      if (isVisible) {
+        try {
+          await aftermovieVideo.play();
+        } catch (_error) {
+        }
+        return;
+      }
+
+      aftermovieVideo.pause();
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        togglePlayback(entry?.isIntersecting && entry.intersectionRatio >= 0.45);
+      },
+      {
+        threshold: [0.45, 0.6],
+      },
+    );
+
+    observer.observe(aftermovieWrap);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        aftermovieVideo.pause();
+      }
+    });
+  });
+</script>
